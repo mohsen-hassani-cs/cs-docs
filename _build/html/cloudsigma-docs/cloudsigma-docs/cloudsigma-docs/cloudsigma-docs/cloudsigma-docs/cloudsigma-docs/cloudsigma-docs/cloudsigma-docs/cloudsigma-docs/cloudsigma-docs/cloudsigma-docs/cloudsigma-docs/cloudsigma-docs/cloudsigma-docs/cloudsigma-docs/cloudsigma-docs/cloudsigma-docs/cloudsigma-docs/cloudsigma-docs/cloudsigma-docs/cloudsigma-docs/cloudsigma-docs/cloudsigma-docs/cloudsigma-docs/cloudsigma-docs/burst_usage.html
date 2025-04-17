@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Burst Usage &mdash; CloudSigma API v2 documentation</title>
+      <link rel="stylesheet" href="../../../../../../../../../../../../../../../../../../../../../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../../../../../../../../../../../../../../../../../../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../../../../../../../../../../../../../../../../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../../../../../../../../../../../../../../../../../../../../../../" id="documentation_options" src="../../../../../../../../../../../../../../../../../../../../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../_static/doctools.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../../../../../../../../../../../../../../../../../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../../../../../../../../../../../../../../../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../../../../../../../../../../../../../../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: green" >
+
+          
+          
+          <a href="../../../../../../../../../../../../../../../../../../../../../../../../../index.html" class="icon icon-home">
+            CloudSigma API
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../../../../../../../../../../../../../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../general.html">General Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../locations.html">Locations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../pagination.html">Pagination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../errors.html">Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../clone_naming.html">Clone naming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../drives.html">Drives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../snapshots.html">Snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../remote_snapshots.html">Remote Snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../libdrives.html">Library Drives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../upload_download.html">Upload or Download Drive Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../servers_vmware.html">VMWare Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../servers.html">Servers / VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../servers_kvm.html">KVM Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../servers_solariskz.html">Solaris Kernel Zone Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../keypairs.html">Keypairs (SSH keys)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../server_context.html">Server Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../network_interfaces.html">Server Network Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../tags.html">Tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../acls.html">ACLs (Access Control Lists)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../meta.html">Objects’ metadata field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../availability_groups.html">Availability Grouping and Avoid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../subscriptions.html">Subscriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../accounts.html">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../audit_logs.html">Audit logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../profile.html">Profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../notification_preferences.html">Notification contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../notification_preferences.html#notification-preferences">Notification preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../billing.html">Billing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../burst_usage.html">Burst Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../burst_usage.html#daily-burst-usage">Daily Burst Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../current_usage.html">Current Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../async.html">Asynchronous server</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: green" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../../../../../../../../../../../../../../../../../../../index.html">CloudSigma API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../../../../../../../../../../../../../../../../../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Burst Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../../../../../../../../../../../../../../../../../../../../../_sources/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/burst_usage.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="burst-usage">
+<h1>Burst Usage<a class="headerlink" href="#burst-usage" title="Permalink to this heading"></a></h1>
+<section id="allowed-http-methods">
+<h2>Allowed HTTP methods<a class="headerlink" href="#allowed-http-methods" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GET</p></td>
+<td><p>get / list object/s</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See <span class="target" id="index-0"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2616.html#section-9"><strong>RFC 2616#section-9</strong></a> for more details on HTTP methods semantics</p>
+</div>
+</section>
+<section id="listing">
+<h2>Listing<a class="headerlink" href="#listing" title="Permalink to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--burstusage-">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/burstusage/</span></span><a class="headerlink" href="#get--burstusage-" title="Permalink to this definition"></a></dt>
+<dd><p>Get the burst usage of the authenticated user for the specified period (last 30 days by default).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – no error</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/2.0/burstusage/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.0</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="nx">OK</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;objects&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;75fbf5d6-4ef6-11e4-9ce3-8bd2cacc5639&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;amount&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.01000000000000000000</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;resource_type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ip&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;usage&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;f2669d85-2dbd-4f0d-8a1f-40a06deb3233&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;amount&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.03010000000000000000</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;resource_type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;cpu&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;usage&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">12000</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;1e170e6e-5339-477d-a29d-c3e6533a1825&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;amount&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.02000000000000000000</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;resource_type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;mem&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;usage&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">9663676416</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;42b2af55-ec3c-4066-a152-66d201c59576&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;amount&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0.01000000000000000000</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;resource_type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;dssd&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="s2">&quot;usage&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">107374182400</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="filtering">
+<h2>Filtering<a class="headerlink" href="#filtering" title="Permalink to this heading"></a></h2>
+<p>It’s possible to specify period of burst usage using <a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../general.html#filtering"><span class="std std-ref">filtering</span></a> by date:</p>
+<ul>
+<li><p>Exact: <cite>?date=2014-10-21</cite></p></li>
+<li><p>Lower than: <cite>?date__lt=2014-10-21</cite></p></li>
+<li><p>Lower than or equal: <cite>?date__lte=2014-10-21</cite></p></li>
+<li><p>Greater than: <cite>?date__gt=2014-10-21</cite></p></li>
+<li><p>Greater than or equal: <cite>?date__gte=2014-10-21</cite></p>
+<blockquote>
+<div><p><strong>Example for retreiving burst usage for the whole July 2014</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/2.0/burstusage/?date__gte=2014-07-01&amp;date__lt=2014-08-01</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+<section id="daily-burst-usage">
+<h1>Daily Burst Usage<a class="headerlink" href="#daily-burst-usage" title="Permalink to this heading"></a></h1>
+<section id="id1">
+<h2>Allowed HTTP methods<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GET</p></td>
+<td><p>get / list object/s</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See <span class="target" id="index-1"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2616.html#section-9"><strong>RFC 2616#section-9</strong></a> for more details on HTTP methods semantics</p>
+</div>
+</section>
+<section id="id2">
+<h2>Listing<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--dailyburstusage-">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/dailyburstusage/</span></span><a class="headerlink" href="#get--dailyburstusage-" title="Permalink to this definition"></a></dt>
+<dd><p>Get the daily burst usage of the authenticated user for the specified period (last 30 days by default).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – no error</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/2.0/dailyburstusage/?date__gt=2014-11-15&amp;date__lt=2014-11-19</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.0</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="nx">OK</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;limit&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;offset&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;total_count&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;objects&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;amount&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0.00886683986848225317&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;date&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2014-11-17&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;resource_type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;dssd&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;usage&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">309237645312</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;amount&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0.00886684598104320994&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;date&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2014-11-16&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;resource_type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;dssd&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;usage&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">309237645312</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;amount&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0.00514153897280246914&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;date&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2014-11-18&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;resource_type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;dssd&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;usage&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">179314884608</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;amount&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0.00886683701903935188&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;date&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;2014-11-15&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;resource_type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;dssd&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;usage&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">309237645312</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="id3">
+<h2>Filtering<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<p>It’s possible to specify period of burst usage using <a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../general.html#filtering"><span class="std std-ref">filtering</span></a> by date:</p>
+<ul>
+<li><p>Lower than: <cite>?date__lt=2014-10-21</cite></p></li>
+<li><p>Greater than: <cite>?date__gt=2014-10-21</cite></p>
+<blockquote>
+<div><p><strong>Example for retreiving burst usage for the whole July 2014</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/2.0/dailyburstusage/?date__gt=2014-07-01&amp;date__lt=2014-08-01</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The date is actually a full time, which means that 2014-11-11 is actually 2014-11-11 00:00. This matters when trying
+to filter because when using less than, it will not include the day, whereas it will be included for greater then.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CloudSigma.
+      <span class="lastupdated">Last updated on Sep 13, 2023.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

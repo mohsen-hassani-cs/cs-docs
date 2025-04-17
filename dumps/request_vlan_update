@@ -1,0 +1,10 @@
+PUT /api/2.0/vlans/96537817-f4b6-496b-a861-e74192d3ccb0/ HTTP/1.1
+Content-Type: application/json
+Authorization: Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop
+
+{
+    "meta": {
+        "custom_field": "some custom data",
+        "name": "my vlan"
+    }
+}

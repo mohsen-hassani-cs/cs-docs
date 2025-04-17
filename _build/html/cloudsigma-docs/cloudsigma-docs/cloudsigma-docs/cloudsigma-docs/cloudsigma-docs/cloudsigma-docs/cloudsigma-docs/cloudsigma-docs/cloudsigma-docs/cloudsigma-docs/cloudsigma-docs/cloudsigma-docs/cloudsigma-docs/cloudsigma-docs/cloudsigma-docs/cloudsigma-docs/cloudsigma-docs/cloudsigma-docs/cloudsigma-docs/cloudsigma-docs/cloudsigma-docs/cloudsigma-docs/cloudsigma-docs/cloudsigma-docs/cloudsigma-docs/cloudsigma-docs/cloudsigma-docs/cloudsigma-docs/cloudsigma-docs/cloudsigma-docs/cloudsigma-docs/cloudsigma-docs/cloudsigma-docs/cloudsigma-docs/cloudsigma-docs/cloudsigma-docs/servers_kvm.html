@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KVM Servers &mdash; CloudSigma API v2 documentation</title>
+      <link rel="stylesheet" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../" id="documentation_options" src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/doctools.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: green" >
+
+          
+          
+          <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../index.html" class="icon icon-home">
+            CloudSigma API
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../general.html">General Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../locations.html">Locations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../pagination.html">Pagination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../errors.html">Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../clone_naming.html">Clone naming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../drives.html">Drives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../snapshots.html">Snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../remote_snapshots.html">Remote Snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../libdrives.html">Library Drives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../upload_download.html">Upload or Download Drive Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../servers_vmware.html">VMWare Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../servers.html">Servers / VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../servers_kvm.html">KVM Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../servers_solariskz.html">Solaris Kernel Zone Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../keypairs.html">Keypairs (SSH keys)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../server_context.html">Server Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../network_interfaces.html">Server Network Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../tags.html">Tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../acls.html">ACLs (Access Control Lists)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../meta.html">Objects’ metadata field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../availability_groups.html">Availability Grouping and Avoid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../subscriptions.html">Subscriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../accounts.html">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../audit_logs.html">Audit logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../profile.html">Profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../notification_preferences.html">Notification contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../notification_preferences.html#notification-preferences">Notification preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../billing.html">Billing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../burst_usage.html">Burst Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../burst_usage.html#daily-burst-usage">Daily Burst Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../current_usage.html">Current Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../async.html">Asynchronous server</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: green" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../index.html">CloudSigma API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">KVM Servers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_sources/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/servers_kvm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="kvm-servers">
+<h1>KVM Servers<a class="headerlink" href="#kvm-servers" title="Permalink to this heading"></a></h1>
+<section id="device-channel">
+<h2>Device channel<a class="headerlink" href="#device-channel" title="Permalink to this heading"></a></h2>
+<p>Device channel is used to specify the controller number and unit number for each attached drive. This is used so
+every time you reboot your virtual machine, the drive remains on the same place in your guest OS ( ex: /dev/sdc )
+You specify the channel in the following format - {controller}:{unit} with the following limits for ide and virtio
+device types:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>ide - 0:0, 0:1, 1:0, 1:1 ( total of 4 drives, max 2 units per controller, i.e 0-1)</p></li>
+<li><p>virtio - 0:0, …, 0:5, …, 1:0, etc ( total of 1024 drives, max 6 units per controller i.e 0-5)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="open-vnc-tunnel">
+<h2>Open VNC Tunnel<a class="headerlink" href="#open-vnc-tunnel" title="Permalink to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--servers-uuid-action-?do=open_vnc">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/servers/{uuid}/action/?do=open_vnc</span></span><a class="headerlink" href="#post--servers-uuid-action-?do=open_vnc" title="Permalink to this definition"></a></dt>
+<dd><p>Server’s console (virtual keyboard, mouse, and display) is exposed to the user through the VNC protocol.
+The <code class="docutils literal notranslate"><span class="pre">open_vnc</span></code> call opens a VNC tunnel to the server. The returned object contains a <code class="docutils literal notranslate"><span class="pre">vnc_url</span></code> specifying the
+endpoint to which to connect the VNC client. The password for the VNC connection is specified in the
+<code class="docutils literal notranslate"><span class="pre">vnc_password</span></code> field on the server definition. Note that the tunnel is not closed until reboot, so if you prefer
+you can close is using the <code class="docutils literal notranslate"><span class="pre">close_vnc</span></code> action.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3">202 Accepted</a></span> – Action accepted, execution is proceeding.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>VNC URL will be different each time you close/open the tunnel.</p>
+</div>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/api/2.0/servers/42cb8991-a39a-4ed3-b549-efd6a1dedd48/action/?do=open_vnc</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+
+<span class="p">{}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">202</span><span class="w"> </span><span class="nx">ACCEPTED</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;action&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;open_vnc&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;result&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;80751bc7-37cc-48c1-bb08-fd04b46090bf&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;vnc_url&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;vnc://direct.zrh.cloudsigma.com:42714&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="close-vnc-tunnel">
+<h2>Close VNC Tunnel<a class="headerlink" href="#close-vnc-tunnel" title="Permalink to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--servers-uuid-action-?do=close_vnc">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/servers/{uuid}/action/?do=close_vnc</span></span><a class="headerlink" href="#post--servers-uuid-action-?do=close_vnc" title="Permalink to this definition"></a></dt>
+<dd><p>Closes a VNC tunnel to a server with specific UUID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3">202 Accepted</a></span> – Action accepted, execution is proceeding.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/api/2.0/servers/42cb8991-a39a-4ed3-b549-efd6a1dedd48/action/?do=close_vnc</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+
+<span class="p">{}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">202</span><span class="w"> </span><span class="nx">ACCEPTED</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;action&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;close_vnc&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;result&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;80751bc7-37cc-48c1-bb08-fd04b46090bf&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</dd></dl>
+
+<section id="advanced-settings">
+<h3>Advanced settings<a class="headerlink" href="#advanced-settings" title="Permalink to this heading"></a></h3>
+<p>On every server configuration there are a few advanced options you can setup.</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;cpus_instead_of_cores&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;enable_numa&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;hv_relaxed&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;hv_tsc&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">cpus_instead_of_cores</span></code>:</dt><dd><ul>
+<li><p>Type: true/false</p></li>
+<li><p>Description: selects whether the SMP is exposed as cores of a single CPU or separate CPUs.
+This should be set to <code class="docutils literal notranslate"><span class="pre">false</span></code> for Windows, because there are license requirements for multiple CPUs.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">enable_numa</span></code>:</dt><dd><ul>
+<li><p>Type: true/false</p></li>
+<li><p>Description: This option exposes the NUMA/CPU topology of the hypervisor to the virtual machine. It
+boosts performance for NUMA aware applications. The option should be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> for servers
+with SMP bigger than 6, since this is the number of cores we have per NUMA node on the hypervisor.
+If set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">cpus_instead_of_cores</span></code> should also be set to <code class="docutils literal notranslate"><span class="pre">true</span></code> for Linux,
+because some Linux distributions do not support multiple NUMA nodes on multple CPU cores,
+but only on multiple CPUs.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">hv_relaxed</span></code></dt><dd><ul>
+<li><p>Type: true/false</p></li>
+<li><p>Description: Relax constraints on timers. This improves the behavior of VMs running Windows.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">hv_tsc</span></code>:</dt><dd><ul>
+<li><p>Type: true/false</p></li>
+<li><p>Description: Enables more precise timers for Windows. This boost performance for timer specific code.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">hv_relaxed</span></code> and <cite>hv_tsc</cite> should be set to <code class="docutils literal notranslate"><span class="pre">false</span></code> for VMs running Linux</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CloudSigma.
+      <span class="lastupdated">Last updated on Sep 13, 2023.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

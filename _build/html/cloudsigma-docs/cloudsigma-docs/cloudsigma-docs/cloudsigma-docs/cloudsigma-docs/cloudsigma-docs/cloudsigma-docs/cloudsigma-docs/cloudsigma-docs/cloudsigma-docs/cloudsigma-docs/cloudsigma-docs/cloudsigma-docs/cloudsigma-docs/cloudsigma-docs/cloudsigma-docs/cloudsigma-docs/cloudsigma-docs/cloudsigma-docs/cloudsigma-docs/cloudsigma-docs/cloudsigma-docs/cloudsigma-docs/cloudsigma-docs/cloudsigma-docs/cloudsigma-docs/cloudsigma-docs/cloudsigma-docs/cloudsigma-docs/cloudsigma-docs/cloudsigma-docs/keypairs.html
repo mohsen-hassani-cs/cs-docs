@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keypairs (SSH keys) &mdash; CloudSigma API v2 documentation</title>
+      <link rel="stylesheet" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../" id="documentation_options" src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/doctools.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: green" >
+
+          
+          
+          <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../index.html" class="icon icon-home">
+            CloudSigma API
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../general.html">General Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../locations.html">Locations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../pagination.html">Pagination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../errors.html">Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../clone_naming.html">Clone naming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../drives.html">Drives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../snapshots.html">Snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../remote_snapshots.html">Remote Snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../libdrives.html">Library Drives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../upload_download.html">Upload or Download Drive Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../servers_vmware.html">VMWare Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../servers.html">Servers / VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../servers_kvm.html">KVM Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../servers_solariskz.html">Solaris Kernel Zone Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../keypairs.html">Keypairs (SSH keys)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../server_context.html">Server Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../network_interfaces.html">Server Network Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../tags.html">Tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../acls.html">ACLs (Access Control Lists)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../meta.html">Objects’ metadata field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../availability_groups.html">Availability Grouping and Avoid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../subscriptions.html">Subscriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../accounts.html">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../audit_logs.html">Audit logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../profile.html">Profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../notification_preferences.html">Notification contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../notification_preferences.html#notification-preferences">Notification preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../billing.html">Billing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../burst_usage.html">Burst Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../burst_usage.html#daily-burst-usage">Daily Burst Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../current_usage.html">Current Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../async.html">Asynchronous server</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: green" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../index.html">CloudSigma API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Keypairs (SSH keys)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_sources/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/keypairs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="keypairs-ssh-keys">
+<h1>Keypairs (SSH keys)<a class="headerlink" href="#keypairs-ssh-keys" title="Permalink to this heading"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">keypairs</span></code> resource can be used to store ssh keys, for use with your servers. You have the choice whether to
+store only the public key or the full public-private key keypair. Keys attached to a server appear in the
+<a class="reference internal" href="server_context.html"><span class="doc">server context</span></a>, and for OS images, which support cloudinit, they can also be automatically
+added to <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> on a reboot. If you omit the public and private keys when creating a keypair, a new
+rsa keypair will be automatically generated for you. Having the private key in your profile will allow for using a
+web-based ssh client. It is also useful if your OS does not have key generation tools installed.</p>
+<p>If the user has turned on two-factor authentication, the <code class="docutils literal notranslate"><span class="pre">keypairs</span></code> resource is protected with one time password. In
+order to make key management for servers easier (and not requiring OTP), there is <code class="docutils literal notranslate"><span class="pre">pubkeys</span></code> resource, which is a
+read-only version of the <code class="docutils literal notranslate"><span class="pre">keypairs</span></code> resource. The <code class="docutils literal notranslate"><span class="pre">pubkeys</span></code> objects are identical to <code class="docutils literal notranslate"><span class="pre">keypairs</span></code> except for the
+fact that they do not contain the private key, and have a <code class="docutils literal notranslate"><span class="pre">has_private_key</span></code> attribute instead of <code class="docutils literal notranslate"><span class="pre">private_key</span></code>,
+which indicates whether the private key was set.</p>
+<p>We currently support two types of SSH Keys: RSA and ed25519.
+The maximum size for the RSA keys is 4096 bits.</p>
+<section id="creating-a-keypair">
+<h2>Creating a keypair<a class="headerlink" href="#creating-a-keypair" title="Permalink to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--keypairs-">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/keypairs/</span></span><a class="headerlink" href="#post--keypairs-" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<p>You have three choices when creating a keypair:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Provide both private and public key</p></li>
+<li><p>Provide only a public key, in which case the private key will remain empty</p></li>
+<li><p>Provide no public, neither private key, in which case a new pair will be generated for you</p></li>
+</ul>
+</div></blockquote>
+<p>For the 3rd choice, you need to also define the “algorithm_type” for generating the key.</p>
+<p>Here is an example of providing both pairs:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/api/2.0/keypairs/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;objects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test_pub&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;private_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-----BEGIN RSA PRIVATE KEY-----\nMIICXwIBAAKCAIEAuU+9enw6UwtDPW+82mLpkEKitLn1drCWuLvWdhdeCfMUCVAL\nZAQiQZkzwyD6xxav2uRyzP3P7nLGuFD/bF+xqL6qq/7KvqzKb79SfLYEOLrpLAwB\n+8AXgNtLXZHEE0KTBIGpT9I/RKXfeWZAmQWSigTREjuuAOQcby7tb4IgoisCAwEA\nAQKCAIBl9QORUqxcaIP0V3gWx/kt0BvpR69QQFSNC3wxuSWaX82UWiAKRWP7p6kd\nIRYZV9glnS+0rakrzqabXqVKIVSDTbHT7SbP56t2pjfi/se/zTQeWYz65AGIfJV4\nNa8e3qN6ivMjTHHgvjbpFIjnFyO5O173deQFSWZXH+l9DuGGUQJBANQVYJqqqGn9\nNCzdLaEnA/+FIPI2jNXxvSqWUr8JolOXaBqxJYUJZNaVFq80NspYJuNHkCaddq1K\nTBe5CEk1FXcCQQDfrysb6prO9Caduozt2ms1R06bVw1i89mn48RFylOHRLNm8Xm/\n+bQErrzFbrPgln7pTmszeBZdpP5ejVOqzxXtAkEAy4ikiGqFbApa+z9cng7icGOk\nJa+iY2Q25dsUGFC3nz9r4knltxI32xODjKswdeo5j99LATQXA+GMuyuRPyiZqwJA\nOXMD32eh2wVZ5ajECVLPth9aUQtKpN98R2J4RnRwf41lhkr+ug+n7Iv0b8C+8i+0\n6Lb7UXzGQcbejeo+UuBdAQJBAMY5mf78YtmOW4i2kPYkS8wsjr9IE1ewUKezBSjj\nTHHog0pafFboifN/aFoO/jL1v7+8XLZ+uZwx5hPQ1L9fzO8=\n-----END RSA PRIVATE KEY-----\n&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;public_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQC5T716fDpTC0M9b7zaYumQQqK0ufV2sJa4u9Z2F14J8xQJUAtkBCJBmTPDIPrHFq/a5HLM/c/ucsa4UP9sX7Govqqr/sq+rMpvv1J8tgQ4uuksDAH7wBeA20tdkcQTQpMEgalP0j9Epd95ZkCZBZKKBNESO64A5BxvLu1vgiCiKw==&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">201</span><span class="w"> </span><span class="nx">CREATED</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;objects&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;fingerprint&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;79:20:0b:49:72:11:b1:bc:df:73:94:09:3d:f8:90:71&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;grantees&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test_pub&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;private_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;-----BEGIN RSA PRIVATE KEY-----\nMIICXwIBAAKCAIEAuU+9enw6UwtDPW+82mLpkEKitLn1drCWuLvWdhdeCfMUCVAL\nZAQiQZkzwyD6xxav2uRyzP3P7nLGuFD/bF+xqL6qq/7KvqzKb79SfLYEOLrpLAwB\n+8AXgNtLXZHEE0KTBIGpT9I/RKXfeWZAmQWSigTREjuuAOQcby7tb4IgoisCAwEA\nAQKCAIBl9QORUqxcaIP0V3gWx/kt0BvpR69QQFSNC3wxuSWaX82UWiAKRWP7p6kd\nIRYZV9glnS+0rakrzqabXqVKIVSDTbHT7SbP56t2pjfi/se/zTQeWYz65AGIfJV4\nNa8e3qN6ivMjTHHgvjbpFIjnFyO5O173deQFSWZXH+l9DuGGUQJBANQVYJqqqGn9\nNCzdLaEnA/+FIPI2jNXxvSqWUr8JolOXaBqxJYUJZNaVFq80NspYJuNHkCaddq1K\nTBe5CEk1FXcCQQDfrysb6prO9Caduozt2ms1R06bVw1i89mn48RFylOHRLNm8Xm/\n+bQErrzFbrPgln7pTmszeBZdpP5ejVOqzxXtAkEAy4ikiGqFbApa+z9cng7icGOk\nJa+iY2Q25dsUGFC3nz9r4knltxI32xODjKswdeo5j99LATQXA+GMuyuRPyiZqwJA\nOXMD32eh2wVZ5ajECVLPth9aUQtKpN98R2J4RnRwf41lhkr+ug+n7Iv0b8C+8i+0\n6Lb7UXzGQcbejeo+UuBdAQJBAMY5mf78YtmOW4i2kPYkS8wsjr9IE1ewUKezBSjj\nTHHog0pafFboifN/aFoO/jL1v7+8XLZ+uZwx5hPQ1L9fzO8=\n-----END RSA PRIVATE KEY-----\n&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;public_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQC5T716fDpTC0M9b7zaYumQQqK0ufV2sJa4u9Z2F14J8xQJUAtkBCJBmTPDIPrHFq/a5HLM/c/ucsa4UP9sX7Govqqr/sq+rMpvv1J8tgQ4uuksDAH7wBeA20tdkcQTQpMEgalP0j9Epd95ZkCZBZKKBNESO64A5BxvLu1vgiCiKw==&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/keypairs/fdd6fbba-644b-49d8-9324-ff6589179da3/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;tags&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;fdd6fbba-644b-49d8-9324-ff6589179da3&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Here is an example of providing only a public key:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/api/2.0/keypairs/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;objects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test_another_pub&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;public_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDFGtYDl+/Oua9uBXqwcbE84QUBBbDdMMzaZ6MAGg1Bmus9VEW0P8kK6npZ0SaUnB2xRrBNwCv0Q0uZBJ70UicgsrhBjCXIVa7K6yQYrFzMxfN8saNAjJvGDdWGSvcMxJdpYwXiOQhFan36eJCCwQjni7I538Ii9chPD8/tyJcBIw==&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">201</span><span class="w"> </span><span class="nx">CREATED</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;objects&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;fingerprint&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;e8:ee:43:72:38:09:6d:1e:8e:46:9e:76:80:a3:0a:01&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;grantees&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test_another_pub&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;private_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;public_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDFGtYDl+/Oua9uBXqwcbE84QUBBbDdMMzaZ6MAGg1Bmus9VEW0P8kK6npZ0SaUnB2xRrBNwCv0Q0uZBJ70UicgsrhBjCXIVa7K6yQYrFzMxfN8saNAjJvGDdWGSvcMxJdpYwXiOQhFan36eJCCwQjni7I538Ii9chPD8/tyJcBIw==&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/keypairs/6d7db550-d1c5-4e3b-9c0a-e83f6a2b8244/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;tags&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;6d7db550-d1c5-4e3b-9c0a-e83f6a2b8244&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Here is an example of creating an autogenerated pair, for which you need to also specify the algorithm type.
+The choices for the algorithm_type can be one of the “rsa” or “ed25519” types.
+The maximum size for the RSA keys is 4096 bits.</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span>POST /api/2.0/keypairs/ HTTP/1.1
+Content-Type: application/json
+Authorization: Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop
+
+{
+    &quot;objects&quot;: [
+        {
+            &quot;name&quot;: &quot;test_name&quot;,
+            &quot;algorithm_type&quot;: &quot;rsa&quot;  # or &quot;ed25519&quot;
+        }
+    ]
+}
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">201</span><span class="w"> </span><span class="nx">CREATED</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;objects&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;fingerprint&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;99:1e:71:ea:d1:43:80:55:14:ca:27:5c:64:69:3b:10&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;grantees&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test_name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;private_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;-----BEGIN RSA PRIVATE KEY-----\nMIIEpwIBAAKCAQEAs4068mFSGTm025oanVSpityZji/2S3A0jRJW1ku47cd+pRBl\nj9k2c2zC4zPBL2EeY8RNMrN/RqLIBU0LsH9LZ6m7QeFVwg2H0SWdh4joFzzcLRkk\n8shvx54l26Ahac1Owh8yERnyum1mbo4VIpJjBUx2Xd6HukXDIvBbW/fxe3KO7rML\nNStkxACSuRmGX+UptMc1M0B3wdpHmGEsLiJn7Rs1CM8gQS6iI88Eywf+usdaHMzf\n8w2sjC7wmlKfYNKUwnQoUCMhwo646JCdE672584OXdmG+aqO9rNcxhbtiViojLrk\ncbLtsHIdn4lUvU5dOx/iUL+H5vRvdHwTpHZaYwIDAQABAoIBAAadFyTCbPG87GqC\nXKSa77vLsGRKY/oXYfgoSsaN93vas1GFLxiDWbwar3sK9vy1yRbHrkhF0FRbvp5j\nXiDcL3zcBafBkxUYxn3vssPBSTtB5KJMoM3IkEV8D8ztMw3goBwKZh+3Ive2++Tq\nmuCxH7CcRmfiwIEd/LgWvma+1UhEuisw2y9F+m9Xl4TRwt34utyyVcjKDPH146W9\ne2ZyFwAcvDOTA8oI+txgA57m284QqHo04YHZdbPN3ovPBNwpfKCpNjneab91fTXX\nX48RY7O1MpDdvbE4l3ELptJq/E74xRsmsZziwRVAV0X6Eb6B2s/0xvKG2/+eDZz7\n1c/gG/ECggCBAMx6111Xtptw93dNZpYBHGNoulh+jn9p8RLIrbpOCncZ0v7EMdV1\n8TYgEDQ0n5TuUx501jWKTNbvoXyTUsAUkvA7VyyH2o8UTtqPgRi8ShB+DePZmRt8\nCwHzjUo86N4BnD6rcfFlFvQMzHRcAmvLrkMtkImgQHFHHh/JjMDjweYdAoIAgQDg\nyn8qWgueIPphlLW6vP9oL+01dHKU3oDlhtUME6/cOwZtzex4tRmx3NbIN/lpfRS7\ndVczIjwcGwHbWi/yeS0bSTK8QEMZYBEi7Qqzzdr0uCF9OjKTDPhZTKFQdeZLjtU4\neFGQeBpjQzRYojEKZNYL3NJF4v7tNw5i28aEM6tafwKCAIB17RJvfrqNguT1JOpY\n8GMS4b82ciZ0TQD/OEUZAREAByCsVTH4TYDDGlK+COtP1PKSygcP8abG/oQ/eCdt\nJ3Bmo5Ju2BqwEaI4YjKttUlxoYEZOtEWDL+8bF27xsz13C/j5LRd51MJhKgVI0sy\nJ9FkZM7K0GTZ743r/yzxwWh98QKCAIBTQKv4M4E5/1y75yenEXhGTfm8YnRNTlrO\npzEgV+o51mJ7KFj8G5Z4mSGy5Ygp2XlkNAEnnvZEMnxtkOlRFC/wexufPO2c6Edw\nd/oOvZ7qI4fDqVoxvAv+hrL36bJxKWUulOEgcFrViH5KlUc0YkQkAJSf7YIcuNdL\nJbpQHBLKYQKCAIBj9rEmDdnGqoseRMLZPXduUHdv6bXhmsw9jVIlB088sg19ZSW/\nng4UvesHB3vSylZIEYhEdnIBqlc84XeXEMRSYVZ9x+RMDP5jJ44Uq52iGYarIhwg\nW8m4q0JmhnPM0M3fRQxbIXOaUQvDgjGuLlzDCY9JjiEfyTgMJATNKK2O4Q==\n-----END RSA PRIVATE KEY-----\n&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;public_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzjTryYVIZObTbmhqdVKmK3JmOL/ZLcDSNElbWS7jtx36lEGWP2TZzbMLjM8EvYR5jxE0ys39GosgFTQuwf0tnqbtB4VXCDYfRJZ2HiOgXPNwtGSTyyG/HniXboCFpzU7CHzIRGfK6bWZujhUikmMFTHZd3oe6RcMi8Ftb9/F7co7usws1K2TEAJK5GYZf5Sm0xzUzQHfB2keYYSwuImftGzUIzyBBLqIjzwTLB/66x1oczN/zDayMLvCaUp9g0pTCdChQIyHCjrjokJ0Trvbnzg5d2Yb5qo72s1zGFu2JWKiMuuRxsu2wch2fiVS9Tl07H+JQv4fm9G90fBOkdlpj&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/keypairs/b4fa47cf-f929-4dde-b77a-ea1d326862bd/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;tags&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;b4fa47cf-f929-4dde-b77a-ea1d326862bd&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="listing-getting-updating-deleting">
+<h2>Listing, Getting, Updating, Deleting<a class="headerlink" href="#listing-getting-updating-deleting" title="Permalink to this heading"></a></h2>
+<p>List keypairs:</p>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--keypairs-">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/keypairs/</span></span><a class="headerlink" href="#get--keypairs-" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/2.0/keypairs/?limit=0</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="nx">OK</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;limit&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;offset&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;total_count&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;objects&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;fingerprint&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;8c:71:a2:f0:bc:a4:45:66:a8:59:77:6d:80:d5:a0:89&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;grantees&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ala&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;private_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;-----BEGIN RSA PRIVATE KEY-----\nMIIEqQIBAAKCAQEAvROcpJ/0T5iZUzfRydsJI4zCbuQAfGH3Bl/biggPY1atLqzf\niz6lctY8wsz2sYts9OQomtCB/xtMPfUjHZpLg1EP4/hfP1NCWtsIbIiDYKrzNEFg\nApSO1AkqBZ8tVL2gpPUuSdaK5P3lPjkbt43dgnThIyMvNoi0g7ngC6L6s960JvBq\nuamOvd8wVaW/VpbyZrKqRwvmsMH1pGErhSAeErImOdwM8wtCddLS3O4nxfts06py\nEcGhupvH8lph9q+jKJxpg7whUkOJyZoMN1XgDvtRFbz9PvlxqP0SOecEHP+4yCOg\nDcJa69LSFFxmlSog9BitCv5qRFwrvKGsMYcesQIDAQABAoIBAQCYBufhend/dIx7\n3BsDuemMOwavEQbO/BoadwLX5okw76WKLRgFJxby0g3C9/i3Ywr1kWqQqGyOCY3x\nF2TnzYNAD/K985vqF/D3irwoQE+ab3njn1kqWfbJyKCQKp/RTjOXz0gruKSvYPJt\naI+/tALSfVX04bp5l8vFSrQ5xw7bhiiFifATuDStVLSzzmEli6Pbne4mcKIXiReu\nK1OlSKPF9SbCxCcEvEhUhQqs7U/N+sEYmUSQ/q8rNdolWQD0c/EGn2RF0siNolxp\nylo5c7E/LvwgTW6DLYaEZDgORnYHEwiaG7YxJAuFFPoQNFIjoGEF5wKOGL/kKtVr\npyriY/k9AoIAgQDRKEf+B+SLO/P/rPP7CCCIh4tR9uXl6hbnEp40sx5AomZmIwfy\nZGRp+iIN3YhM2XQ96fb47Lgc4AsDUHKt+9ASqJWWn0f06sbaaVsTfKpxVuI1kPsh\nGVpuOqwQCnXFyTvvirrdTlAw32hOzl1VVL0bL57MsAkpmjHnqsEqYTpIhwKCAIEA\n52wIL3RMT6bGjfx/PMsyTOa9AFSLzsjvoOt1HjyC0v7fhZ3vGfwJSnEQXf7R31um\njA0yoSjyX7uyXYRvUlL8aibqoKw19U0WmwAKj9VCOdf7IFnd6WqcisZACq4IjcZU\nTE6ev3MqxAbdmz4dVPvz4GvqseQ39bktmIHEVkH3hQcCggCAKOx/wZWbwx507GbT\nyh9Z9jzHJr9vViAKYSYEbH1LgwwDiyJ5kJTSDOZTOXFKFPdLRj38A9KVZ5jyrrBT\n7/TgTnZL5o+9zY8OX3fTySlQVCLS2fZHHL/QMNcsCWtyhcONBZ6YV2rWR+m+iATa\nwDJ3WdVkddpPwKMZ9qEzcG5bsAsCggCBANUJBDf7DUy9sEaAy/iA7ZsRRaeKLPF8\n0+sFFdlxxtTJP6bXDoaTF1Jp5rFApJ7C1fxTIeptsUEjnjysb3YPYsGtdYvXPAzG\nnCqvzQk/PinVgx3y3G/FbrnpaobqUoGAs5VTQpvnPtUZpOMGOSZEkepkLbb46fLQ\nNwMPYlgtfdf9AoIAgEEbKzsfgWN72TIdSO7ZsYCdpy4vq9EqNMIYyplY4ue1Ogn+\nGlN6UM60S/+MF0uu+KKa3KBjFD+kZCyM90IESw9rshzRceaXtEetk8Z5kOIKGznt\noyCsfrxJbKn3qbH+zM0HDVEfGCiMmIpB2l/DShQjCRGyPAL7OG0GEDw9uQI6\n-----END RSA PRIVATE KEY-----\n&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;public_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9E5ykn/RPmJlTN9HJ2wkjjMJu5AB8YfcGX9uKCA9jVq0urN+LPqVy1jzCzPaxi2z05Cia0IH/G0w99SMdmkuDUQ/j+F8/U0Ja2whsiINgqvM0QWAClI7UCSoFny1UvaCk9S5J1ork/eU+ORu3jd2CdOEjIy82iLSDueALovqz3rQm8Gq5qY693zBVpb9WlvJmsqpHC+awwfWkYSuFIB4SsiY53AzzC0J10tLc7ifF+2zTqnIRwaG6m8fyWmH2r6MonGmDvCFSQ4nJmgw3VeAO+1EVvP0++XGo/RI55wQc/7jII6ANwlrr0tIUXGaVKiD0GK0K/mpEXCu8oawxhx6x&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/keypairs/186106ac-afb5-40e5-a0de-6f0feba5a3d5/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;tags&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;186106ac-afb5-40e5-a0de-6f0feba5a3d5&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;fingerprint&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;99:1e:71:ea:d1:43:80:55:14:ca:27:5c:64:69:3b:10&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;grantees&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test_name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;private_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;-----BEGIN RSA PRIVATE KEY-----\nMIIEpwIBAAKCAQEAs4068mFSGTm025oanVSpityZji/2S3A0jRJW1ku47cd+pRBl\nj9k2c2zC4zPBL2EeY8RNMrN/RqLIBU0LsH9LZ6m7QeFVwg2H0SWdh4joFzzcLRkk\n8shvx54l26Ahac1Owh8yERnyum1mbo4VIpJjBUx2Xd6HukXDIvBbW/fxe3KO7rML\nNStkxACSuRmGX+UptMc1M0B3wdpHmGEsLiJn7Rs1CM8gQS6iI88Eywf+usdaHMzf\n8w2sjC7wmlKfYNKUwnQoUCMhwo646JCdE672584OXdmG+aqO9rNcxhbtiViojLrk\ncbLtsHIdn4lUvU5dOx/iUL+H5vRvdHwTpHZaYwIDAQABAoIBAAadFyTCbPG87GqC\nXKSa77vLsGRKY/oXYfgoSsaN93vas1GFLxiDWbwar3sK9vy1yRbHrkhF0FRbvp5j\nXiDcL3zcBafBkxUYxn3vssPBSTtB5KJMoM3IkEV8D8ztMw3goBwKZh+3Ive2++Tq\nmuCxH7CcRmfiwIEd/LgWvma+1UhEuisw2y9F+m9Xl4TRwt34utyyVcjKDPH146W9\ne2ZyFwAcvDOTA8oI+txgA57m284QqHo04YHZdbPN3ovPBNwpfKCpNjneab91fTXX\nX48RY7O1MpDdvbE4l3ELptJq/E74xRsmsZziwRVAV0X6Eb6B2s/0xvKG2/+eDZz7\n1c/gG/ECggCBAMx6111Xtptw93dNZpYBHGNoulh+jn9p8RLIrbpOCncZ0v7EMdV1\n8TYgEDQ0n5TuUx501jWKTNbvoXyTUsAUkvA7VyyH2o8UTtqPgRi8ShB+DePZmRt8\nCwHzjUo86N4BnD6rcfFlFvQMzHRcAmvLrkMtkImgQHFHHh/JjMDjweYdAoIAgQDg\nyn8qWgueIPphlLW6vP9oL+01dHKU3oDlhtUME6/cOwZtzex4tRmx3NbIN/lpfRS7\ndVczIjwcGwHbWi/yeS0bSTK8QEMZYBEi7Qqzzdr0uCF9OjKTDPhZTKFQdeZLjtU4\neFGQeBpjQzRYojEKZNYL3NJF4v7tNw5i28aEM6tafwKCAIB17RJvfrqNguT1JOpY\n8GMS4b82ciZ0TQD/OEUZAREAByCsVTH4TYDDGlK+COtP1PKSygcP8abG/oQ/eCdt\nJ3Bmo5Ju2BqwEaI4YjKttUlxoYEZOtEWDL+8bF27xsz13C/j5LRd51MJhKgVI0sy\nJ9FkZM7K0GTZ743r/yzxwWh98QKCAIBTQKv4M4E5/1y75yenEXhGTfm8YnRNTlrO\npzEgV+o51mJ7KFj8G5Z4mSGy5Ygp2XlkNAEnnvZEMnxtkOlRFC/wexufPO2c6Edw\nd/oOvZ7qI4fDqVoxvAv+hrL36bJxKWUulOEgcFrViH5KlUc0YkQkAJSf7YIcuNdL\nJbpQHBLKYQKCAIBj9rEmDdnGqoseRMLZPXduUHdv6bXhmsw9jVIlB088sg19ZSW/\nng4UvesHB3vSylZIEYhEdnIBqlc84XeXEMRSYVZ9x+RMDP5jJ44Uq52iGYarIhwg\nW8m4q0JmhnPM0M3fRQxbIXOaUQvDgjGuLlzDCY9JjiEfyTgMJATNKK2O4Q==\n-----END RSA PRIVATE KEY-----\n&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;public_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzjTryYVIZObTbmhqdVKmK3JmOL/ZLcDSNElbWS7jtx36lEGWP2TZzbMLjM8EvYR5jxE0ys39GosgFTQuwf0tnqbtB4VXCDYfRJZ2HiOgXPNwtGSTyyG/HniXboCFpzU7CHzIRGfK6bWZujhUikmMFTHZd3oe6RcMi8Ftb9/F7co7usws1K2TEAJK5GYZf5Sm0xzUzQHfB2keYYSwuImftGzUIzyBBLqIjzwTLB/66x1oczN/zDayMLvCaUp9g0pTCdChQIyHCjrjokJ0Trvbnzg5d2Yb5qo72s1zGFu2JWKiMuuRxsu2wch2fiVS9Tl07H+JQv4fm9G90fBOkdlpj&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/keypairs/b4fa47cf-f929-4dde-b77a-ea1d326862bd/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;tags&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;b4fa47cf-f929-4dde-b77a-ea1d326862bd&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Get a single keypair:</p>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--keypairs-uuid-">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/keypairs/{uuid}/</span></span><a class="headerlink" href="#get--keypairs-uuid-" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/2.0/keypairs/b4fa47cf-f929-4dde-b77a-ea1d326862bd/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="nx">OK</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;fingerprint&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;99:1e:71:ea:d1:43:80:55:14:ca:27:5c:64:69:3b:10&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;grantees&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test_name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;private_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;-----BEGIN RSA PRIVATE KEY-----\nMIIEpwIBAAKCAQEAs4068mFSGTm025oanVSpityZji/2S3A0jRJW1ku47cd+pRBl\nj9k2c2zC4zPBL2EeY8RNMrN/RqLIBU0LsH9LZ6m7QeFVwg2H0SWdh4joFzzcLRkk\n8shvx54l26Ahac1Owh8yERnyum1mbo4VIpJjBUx2Xd6HukXDIvBbW/fxe3KO7rML\nNStkxACSuRmGX+UptMc1M0B3wdpHmGEsLiJn7Rs1CM8gQS6iI88Eywf+usdaHMzf\n8w2sjC7wmlKfYNKUwnQoUCMhwo646JCdE672584OXdmG+aqO9rNcxhbtiViojLrk\ncbLtsHIdn4lUvU5dOx/iUL+H5vRvdHwTpHZaYwIDAQABAoIBAAadFyTCbPG87GqC\nXKSa77vLsGRKY/oXYfgoSsaN93vas1GFLxiDWbwar3sK9vy1yRbHrkhF0FRbvp5j\nXiDcL3zcBafBkxUYxn3vssPBSTtB5KJMoM3IkEV8D8ztMw3goBwKZh+3Ive2++Tq\nmuCxH7CcRmfiwIEd/LgWvma+1UhEuisw2y9F+m9Xl4TRwt34utyyVcjKDPH146W9\ne2ZyFwAcvDOTA8oI+txgA57m284QqHo04YHZdbPN3ovPBNwpfKCpNjneab91fTXX\nX48RY7O1MpDdvbE4l3ELptJq/E74xRsmsZziwRVAV0X6Eb6B2s/0xvKG2/+eDZz7\n1c/gG/ECggCBAMx6111Xtptw93dNZpYBHGNoulh+jn9p8RLIrbpOCncZ0v7EMdV1\n8TYgEDQ0n5TuUx501jWKTNbvoXyTUsAUkvA7VyyH2o8UTtqPgRi8ShB+DePZmRt8\nCwHzjUo86N4BnD6rcfFlFvQMzHRcAmvLrkMtkImgQHFHHh/JjMDjweYdAoIAgQDg\nyn8qWgueIPphlLW6vP9oL+01dHKU3oDlhtUME6/cOwZtzex4tRmx3NbIN/lpfRS7\ndVczIjwcGwHbWi/yeS0bSTK8QEMZYBEi7Qqzzdr0uCF9OjKTDPhZTKFQdeZLjtU4\neFGQeBpjQzRYojEKZNYL3NJF4v7tNw5i28aEM6tafwKCAIB17RJvfrqNguT1JOpY\n8GMS4b82ciZ0TQD/OEUZAREAByCsVTH4TYDDGlK+COtP1PKSygcP8abG/oQ/eCdt\nJ3Bmo5Ju2BqwEaI4YjKttUlxoYEZOtEWDL+8bF27xsz13C/j5LRd51MJhKgVI0sy\nJ9FkZM7K0GTZ743r/yzxwWh98QKCAIBTQKv4M4E5/1y75yenEXhGTfm8YnRNTlrO\npzEgV+o51mJ7KFj8G5Z4mSGy5Ygp2XlkNAEnnvZEMnxtkOlRFC/wexufPO2c6Edw\nd/oOvZ7qI4fDqVoxvAv+hrL36bJxKWUulOEgcFrViH5KlUc0YkQkAJSf7YIcuNdL\nJbpQHBLKYQKCAIBj9rEmDdnGqoseRMLZPXduUHdv6bXhmsw9jVIlB088sg19ZSW/\nng4UvesHB3vSylZIEYhEdnIBqlc84XeXEMRSYVZ9x+RMDP5jJ44Uq52iGYarIhwg\nW8m4q0JmhnPM0M3fRQxbIXOaUQvDgjGuLlzDCY9JjiEfyTgMJATNKK2O4Q==\n-----END RSA PRIVATE KEY-----\n&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;public_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzjTryYVIZObTbmhqdVKmK3JmOL/ZLcDSNElbWS7jtx36lEGWP2TZzbMLjM8EvYR5jxE0ys39GosgFTQuwf0tnqbtB4VXCDYfRJZ2HiOgXPNwtGSTyyG/HniXboCFpzU7CHzIRGfK6bWZujhUikmMFTHZd3oe6RcMi8Ftb9/F7co7usws1K2TEAJK5GYZf5Sm0xzUzQHfB2keYYSwuImftGzUIzyBBLqIjzwTLB/66x1oczN/zDayMLvCaUp9g0pTCdChQIyHCjrjokJ0Trvbnzg5d2Yb5qo72s1zGFu2JWKiMuuRxsu2wch2fiVS9Tl07H+JQv4fm9G90fBOkdlpj&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/keypairs/b4fa47cf-f929-4dde-b77a-ea1d326862bd/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;tags&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;b4fa47cf-f929-4dde-b77a-ea1d326862bd&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Update a kypair:</p>
+<dl class="http put">
+<dt class="sig sig-object http" id="put--keypairs-uuid-">
+<span class="sig-name descname"><span class="pre">PUT</span> </span><span class="sig-name descname"><span class="pre">/keypairs/{uuid}/</span></span><a class="headerlink" href="#put--keypairs-uuid-" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">PUT</span> <span class="nn">/api/2.0/keypairs/b4fa47cf-f929-4dde-b77a-ea1d326862bd/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;fingerprint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;99:1e:71:ea:d1:43:80:55:14:ca:27:5c:64:69:3b:10&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;grantees&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new_name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;permissions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;private_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-----BEGIN RSA PRIVATE KEY-----\nMIIEpwIBAAKCAQEAs4068mFSGTm025oanVSpityZji/2S3A0jRJW1ku47cd+pRBl\nj9k2c2zC4zPBL2EeY8RNMrN/RqLIBU0LsH9LZ6m7QeFVwg2H0SWdh4joFzzcLRkk\n8shvx54l26Ahac1Owh8yERnyum1mbo4VIpJjBUx2Xd6HukXDIvBbW/fxe3KO7rML\nNStkxACSuRmGX+UptMc1M0B3wdpHmGEsLiJn7Rs1CM8gQS6iI88Eywf+usdaHMzf\n8w2sjC7wmlKfYNKUwnQoUCMhwo646JCdE672584OXdmG+aqO9rNcxhbtiViojLrk\ncbLtsHIdn4lUvU5dOx/iUL+H5vRvdHwTpHZaYwIDAQABAoIBAAadFyTCbPG87GqC\nXKSa77vLsGRKY/oXYfgoSsaN93vas1GFLxiDWbwar3sK9vy1yRbHrkhF0FRbvp5j\nXiDcL3zcBafBkxUYxn3vssPBSTtB5KJMoM3IkEV8D8ztMw3goBwKZh+3Ive2++Tq\nmuCxH7CcRmfiwIEd/LgWvma+1UhEuisw2y9F+m9Xl4TRwt34utyyVcjKDPH146W9\ne2ZyFwAcvDOTA8oI+txgA57m284QqHo04YHZdbPN3ovPBNwpfKCpNjneab91fTXX\nX48RY7O1MpDdvbE4l3ELptJq/E74xRsmsZziwRVAV0X6Eb6B2s/0xvKG2/+eDZz7\n1c/gG/ECggCBAMx6111Xtptw93dNZpYBHGNoulh+jn9p8RLIrbpOCncZ0v7EMdV1\n8TYgEDQ0n5TuUx501jWKTNbvoXyTUsAUkvA7VyyH2o8UTtqPgRi8ShB+DePZmRt8\nCwHzjUo86N4BnD6rcfFlFvQMzHRcAmvLrkMtkImgQHFHHh/JjMDjweYdAoIAgQDg\nyn8qWgueIPphlLW6vP9oL+01dHKU3oDlhtUME6/cOwZtzex4tRmx3NbIN/lpfRS7\ndVczIjwcGwHbWi/yeS0bSTK8QEMZYBEi7Qqzzdr0uCF9OjKTDPhZTKFQdeZLjtU4\neFGQeBpjQzRYojEKZNYL3NJF4v7tNw5i28aEM6tafwKCAIB17RJvfrqNguT1JOpY\n8GMS4b82ciZ0TQD/OEUZAREAByCsVTH4TYDDGlK+COtP1PKSygcP8abG/oQ/eCdt\nJ3Bmo5Ju2BqwEaI4YjKttUlxoYEZOtEWDL+8bF27xsz13C/j5LRd51MJhKgVI0sy\nJ9FkZM7K0GTZ743r/yzxwWh98QKCAIBTQKv4M4E5/1y75yenEXhGTfm8YnRNTlrO\npzEgV+o51mJ7KFj8G5Z4mSGy5Ygp2XlkNAEnnvZEMnxtkOlRFC/wexufPO2c6Edw\nd/oOvZ7qI4fDqVoxvAv+hrL36bJxKWUulOEgcFrViH5KlUc0YkQkAJSf7YIcuNdL\nJbpQHBLKYQKCAIBj9rEmDdnGqoseRMLZPXduUHdv6bXhmsw9jVIlB088sg19ZSW/\nng4UvesHB3vSylZIEYhEdnIBqlc84XeXEMRSYVZ9x+RMDP5jJ44Uq52iGYarIhwg\nW8m4q0JmhnPM0M3fRQxbIXOaUQvDgjGuLlzDCY9JjiEfyTgMJATNKK2O4Q==\n-----END RSA PRIVATE KEY-----\n&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;public_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzjTryYVIZObTbmhqdVKmK3JmOL/ZLcDSNElbWS7jtx36lEGWP2TZzbMLjM8EvYR5jxE0ys39GosgFTQuwf0tnqbtB4VXCDYfRJZ2HiOgXPNwtGSTyyG/HniXboCFpzU7CHzIRGfK6bWZujhUikmMFTHZd3oe6RcMi8Ftb9/F7co7usws1K2TEAJK5GYZf5Sm0xzUzQHfB2keYYSwuImftGzUIzyBBLqIjzwTLB/66x1oczN/zDayMLvCaUp9g0pTCdChQIyHCjrjokJ0Trvbnzg5d2Yb5qo72s1zGFu2JWKiMuuRxsu2wch2fiVS9Tl07H+JQv4fm9G90fBOkdlpj&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;resource_uri&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/keypairs/b4fa47cf-f929-4dde-b77a-ea1d326862bd/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;tags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;uuid&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;b4fa47cf-f929-4dde-b77a-ea1d326862bd&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="nx">OK</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;fingerprint&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;99:1e:71:ea:d1:43:80:55:14:ca:27:5c:64:69:3b:10&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;grantees&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;new_name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;private_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;-----BEGIN RSA PRIVATE KEY-----\nMIIEpwIBAAKCAQEAs4068mFSGTm025oanVSpityZji/2S3A0jRJW1ku47cd+pRBl\nj9k2c2zC4zPBL2EeY8RNMrN/RqLIBU0LsH9LZ6m7QeFVwg2H0SWdh4joFzzcLRkk\n8shvx54l26Ahac1Owh8yERnyum1mbo4VIpJjBUx2Xd6HukXDIvBbW/fxe3KO7rML\nNStkxACSuRmGX+UptMc1M0B3wdpHmGEsLiJn7Rs1CM8gQS6iI88Eywf+usdaHMzf\n8w2sjC7wmlKfYNKUwnQoUCMhwo646JCdE672584OXdmG+aqO9rNcxhbtiViojLrk\ncbLtsHIdn4lUvU5dOx/iUL+H5vRvdHwTpHZaYwIDAQABAoIBAAadFyTCbPG87GqC\nXKSa77vLsGRKY/oXYfgoSsaN93vas1GFLxiDWbwar3sK9vy1yRbHrkhF0FRbvp5j\nXiDcL3zcBafBkxUYxn3vssPBSTtB5KJMoM3IkEV8D8ztMw3goBwKZh+3Ive2++Tq\nmuCxH7CcRmfiwIEd/LgWvma+1UhEuisw2y9F+m9Xl4TRwt34utyyVcjKDPH146W9\ne2ZyFwAcvDOTA8oI+txgA57m284QqHo04YHZdbPN3ovPBNwpfKCpNjneab91fTXX\nX48RY7O1MpDdvbE4l3ELptJq/E74xRsmsZziwRVAV0X6Eb6B2s/0xvKG2/+eDZz7\n1c/gG/ECggCBAMx6111Xtptw93dNZpYBHGNoulh+jn9p8RLIrbpOCncZ0v7EMdV1\n8TYgEDQ0n5TuUx501jWKTNbvoXyTUsAUkvA7VyyH2o8UTtqPgRi8ShB+DePZmRt8\nCwHzjUo86N4BnD6rcfFlFvQMzHRcAmvLrkMtkImgQHFHHh/JjMDjweYdAoIAgQDg\nyn8qWgueIPphlLW6vP9oL+01dHKU3oDlhtUME6/cOwZtzex4tRmx3NbIN/lpfRS7\ndVczIjwcGwHbWi/yeS0bSTK8QEMZYBEi7Qqzzdr0uCF9OjKTDPhZTKFQdeZLjtU4\neFGQeBpjQzRYojEKZNYL3NJF4v7tNw5i28aEM6tafwKCAIB17RJvfrqNguT1JOpY\n8GMS4b82ciZ0TQD/OEUZAREAByCsVTH4TYDDGlK+COtP1PKSygcP8abG/oQ/eCdt\nJ3Bmo5Ju2BqwEaI4YjKttUlxoYEZOtEWDL+8bF27xsz13C/j5LRd51MJhKgVI0sy\nJ9FkZM7K0GTZ743r/yzxwWh98QKCAIBTQKv4M4E5/1y75yenEXhGTfm8YnRNTlrO\npzEgV+o51mJ7KFj8G5Z4mSGy5Ygp2XlkNAEnnvZEMnxtkOlRFC/wexufPO2c6Edw\nd/oOvZ7qI4fDqVoxvAv+hrL36bJxKWUulOEgcFrViH5KlUc0YkQkAJSf7YIcuNdL\nJbpQHBLKYQKCAIBj9rEmDdnGqoseRMLZPXduUHdv6bXhmsw9jVIlB088sg19ZSW/\nng4UvesHB3vSylZIEYhEdnIBqlc84XeXEMRSYVZ9x+RMDP5jJ44Uq52iGYarIhwg\nW8m4q0JmhnPM0M3fRQxbIXOaUQvDgjGuLlzDCY9JjiEfyTgMJATNKK2O4Q==\n-----END RSA PRIVATE KEY-----\n&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;public_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzjTryYVIZObTbmhqdVKmK3JmOL/ZLcDSNElbWS7jtx36lEGWP2TZzbMLjM8EvYR5jxE0ys39GosgFTQuwf0tnqbtB4VXCDYfRJZ2HiOgXPNwtGSTyyG/HniXboCFpzU7CHzIRGfK6bWZujhUikmMFTHZd3oe6RcMi8Ftb9/F7co7usws1K2TEAJK5GYZf5Sm0xzUzQHfB2keYYSwuImftGzUIzyBBLqIjzwTLB/66x1oczN/zDayMLvCaUp9g0pTCdChQIyHCjrjokJ0Trvbnzg5d2Yb5qo72s1zGFu2JWKiMuuRxsu2wch2fiVS9Tl07H+JQv4fm9G90fBOkdlpj&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/keypairs/b4fa47cf-f929-4dde-b77a-ea1d326862bd/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;tags&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;b4fa47cf-f929-4dde-b77a-ea1d326862bd&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Delete a keypair:</p>
+<dl class="http delete">
+<dt class="sig sig-object http" id="delete--keypairs-uuid-">
+<span class="sig-name descname"><span class="pre">DELETE</span> </span><span class="sig-name descname"><span class="pre">/keypairs/{uuid}/</span></span><a class="headerlink" href="#delete--keypairs-uuid-" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">DELETE</span> <span class="nn">/api/2.0/keypairs/b4fa47cf-f929-4dde-b77a-ea1d326862bd/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">204</span><span class="w"> </span><span class="nx">NO</span><span class="w"> </span><span class="nx">CONTENT</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">text</span><span class="o">/</span><span class="nx">html</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="pubkeys-resource">
+<h2>Pubkeys resource<a class="headerlink" href="#pubkeys-resource" title="Permalink to this heading"></a></h2>
+<p>In order to access just the public keys without the need for OTP, you can use the <code class="docutils literal notranslate"><span class="pre">pubkeys</span></code> resource. Instead
+of a private key it contains an attribute <code class="docutils literal notranslate"><span class="pre">has_private_key</span></code> which indicates whether the private key was set.</p>
+<p>For example creating an autogenerated keypair:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span>POST /api/2.0/keypairs/ HTTP/1.1
+Content-Type: application/json
+Authorization: Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop
+
+{
+    &quot;objects&quot;: [
+        {
+            &quot;name&quot;: &quot;test_name&quot;,
+            &quot;algorithm_type&quot;: &quot;rsa&quot;  # or &quot;ed25519&quot;
+        }
+    ]
+}
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">201</span><span class="w"> </span><span class="nx">CREATED</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;objects&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;fingerprint&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;99:1e:71:ea:d1:43:80:55:14:ca:27:5c:64:69:3b:10&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;grantees&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test_name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;private_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;-----BEGIN RSA PRIVATE KEY-----\nMIIEpwIBAAKCAQEAs4068mFSGTm025oanVSpityZji/2S3A0jRJW1ku47cd+pRBl\nj9k2c2zC4zPBL2EeY8RNMrN/RqLIBU0LsH9LZ6m7QeFVwg2H0SWdh4joFzzcLRkk\n8shvx54l26Ahac1Owh8yERnyum1mbo4VIpJjBUx2Xd6HukXDIvBbW/fxe3KO7rML\nNStkxACSuRmGX+UptMc1M0B3wdpHmGEsLiJn7Rs1CM8gQS6iI88Eywf+usdaHMzf\n8w2sjC7wmlKfYNKUwnQoUCMhwo646JCdE672584OXdmG+aqO9rNcxhbtiViojLrk\ncbLtsHIdn4lUvU5dOx/iUL+H5vRvdHwTpHZaYwIDAQABAoIBAAadFyTCbPG87GqC\nXKSa77vLsGRKY/oXYfgoSsaN93vas1GFLxiDWbwar3sK9vy1yRbHrkhF0FRbvp5j\nXiDcL3zcBafBkxUYxn3vssPBSTtB5KJMoM3IkEV8D8ztMw3goBwKZh+3Ive2++Tq\nmuCxH7CcRmfiwIEd/LgWvma+1UhEuisw2y9F+m9Xl4TRwt34utyyVcjKDPH146W9\ne2ZyFwAcvDOTA8oI+txgA57m284QqHo04YHZdbPN3ovPBNwpfKCpNjneab91fTXX\nX48RY7O1MpDdvbE4l3ELptJq/E74xRsmsZziwRVAV0X6Eb6B2s/0xvKG2/+eDZz7\n1c/gG/ECggCBAMx6111Xtptw93dNZpYBHGNoulh+jn9p8RLIrbpOCncZ0v7EMdV1\n8TYgEDQ0n5TuUx501jWKTNbvoXyTUsAUkvA7VyyH2o8UTtqPgRi8ShB+DePZmRt8\nCwHzjUo86N4BnD6rcfFlFvQMzHRcAmvLrkMtkImgQHFHHh/JjMDjweYdAoIAgQDg\nyn8qWgueIPphlLW6vP9oL+01dHKU3oDlhtUME6/cOwZtzex4tRmx3NbIN/lpfRS7\ndVczIjwcGwHbWi/yeS0bSTK8QEMZYBEi7Qqzzdr0uCF9OjKTDPhZTKFQdeZLjtU4\neFGQeBpjQzRYojEKZNYL3NJF4v7tNw5i28aEM6tafwKCAIB17RJvfrqNguT1JOpY\n8GMS4b82ciZ0TQD/OEUZAREAByCsVTH4TYDDGlK+COtP1PKSygcP8abG/oQ/eCdt\nJ3Bmo5Ju2BqwEaI4YjKttUlxoYEZOtEWDL+8bF27xsz13C/j5LRd51MJhKgVI0sy\nJ9FkZM7K0GTZ743r/yzxwWh98QKCAIBTQKv4M4E5/1y75yenEXhGTfm8YnRNTlrO\npzEgV+o51mJ7KFj8G5Z4mSGy5Ygp2XlkNAEnnvZEMnxtkOlRFC/wexufPO2c6Edw\nd/oOvZ7qI4fDqVoxvAv+hrL36bJxKWUulOEgcFrViH5KlUc0YkQkAJSf7YIcuNdL\nJbpQHBLKYQKCAIBj9rEmDdnGqoseRMLZPXduUHdv6bXhmsw9jVIlB088sg19ZSW/\nng4UvesHB3vSylZIEYhEdnIBqlc84XeXEMRSYVZ9x+RMDP5jJ44Uq52iGYarIhwg\nW8m4q0JmhnPM0M3fRQxbIXOaUQvDgjGuLlzDCY9JjiEfyTgMJATNKK2O4Q==\n-----END RSA PRIVATE KEY-----\n&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;public_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzjTryYVIZObTbmhqdVKmK3JmOL/ZLcDSNElbWS7jtx36lEGWP2TZzbMLjM8EvYR5jxE0ys39GosgFTQuwf0tnqbtB4VXCDYfRJZ2HiOgXPNwtGSTyyG/HniXboCFpzU7CHzIRGfK6bWZujhUikmMFTHZd3oe6RcMi8Ftb9/F7co7usws1K2TEAJK5GYZf5Sm0xzUzQHfB2keYYSwuImftGzUIzyBBLqIjzwTLB/66x1oczN/zDayMLvCaUp9g0pTCdChQIyHCjrjokJ0Trvbnzg5d2Yb5qo72s1zGFu2JWKiMuuRxsu2wch2fiVS9Tl07H+JQv4fm9G90fBOkdlpj&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/keypairs/b4fa47cf-f929-4dde-b77a-ea1d326862bd/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;tags&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;b4fa47cf-f929-4dde-b77a-ea1d326862bd&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Results in a corresponding <code class="docutils literal notranslate"><span class="pre">pubkeys</span></code> object with <code class="docutils literal notranslate"><span class="pre">has_private_key</span></code>, which is <cite>true</cite>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/2.0/pubkeys/fdd6fbba-644b-49d8-9324-ff6589179da3/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="nx">OK</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;fingerprint&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;79:20:0b:49:72:11:b1:bc:df:73:94:09:3d:f8:90:71&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;grantees&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;has_private_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test_pub&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;public_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQC5T716fDpTC0M9b7zaYumQQqK0ufV2sJa4u9Z2F14J8xQJUAtkBCJBmTPDIPrHFq/a5HLM/c/ucsa4UP9sX7Govqqr/sq+rMpvv1J8tgQ4uuksDAH7wBeA20tdkcQTQpMEgalP0j9Epd95ZkCZBZKKBNESO64A5BxvLu1vgiCiKw==&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/pubkeys/fdd6fbba-644b-49d8-9324-ff6589179da3/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;tags&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;fdd6fbba-644b-49d8-9324-ff6589179da3&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Creating a keypair with only a public key:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/api/2.0/keypairs/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;objects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test_another_pub&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;public_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDFGtYDl+/Oua9uBXqwcbE84QUBBbDdMMzaZ6MAGg1Bmus9VEW0P8kK6npZ0SaUnB2xRrBNwCv0Q0uZBJ70UicgsrhBjCXIVa7K6yQYrFzMxfN8saNAjJvGDdWGSvcMxJdpYwXiOQhFan36eJCCwQjni7I538Ii9chPD8/tyJcBIw==&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">201</span><span class="w"> </span><span class="nx">CREATED</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;objects&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;fingerprint&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;e8:ee:43:72:38:09:6d:1e:8e:46:9e:76:80:a3:0a:01&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;grantees&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test_another_pub&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;private_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;public_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDFGtYDl+/Oua9uBXqwcbE84QUBBbDdMMzaZ6MAGg1Bmus9VEW0P8kK6npZ0SaUnB2xRrBNwCv0Q0uZBJ70UicgsrhBjCXIVa7K6yQYrFzMxfN8saNAjJvGDdWGSvcMxJdpYwXiOQhFan36eJCCwQjni7I538Ii9chPD8/tyJcBIw==&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/keypairs/6d7db550-d1c5-4e3b-9c0a-e83f6a2b8244/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;tags&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;6d7db550-d1c5-4e3b-9c0a-e83f6a2b8244&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Results in a corresponding <code class="docutils literal notranslate"><span class="pre">pubkeys</span></code> object with <code class="docutils literal notranslate"><span class="pre">has_private_key</span></code>, which is <cite>false</cite>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/api/2.0/pubkeys/6d7db550-d1c5-4e3b-9c0a-e83f6a2b8244/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">200</span><span class="w"> </span><span class="nx">OK</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;fingerprint&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;e8:ee:43:72:38:09:6d:1e:8e:46:9e:76:80:a3:0a:01&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;grantees&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;has_private_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test_another_pub&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;public_key&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDFGtYDl+/Oua9uBXqwcbE84QUBBbDdMMzaZ6MAGg1Bmus9VEW0P8kK6npZ0SaUnB2xRrBNwCv0Q0uZBJ70UicgsrhBjCXIVa7K6yQYrFzMxfN8saNAjJvGDdWGSvcMxJdpYwXiOQhFan36eJCCwQjni7I538Ii9chPD8/tyJcBIw==&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/pubkeys/6d7db550-d1c5-4e3b-9c0a-e83f6a2b8244/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;tags&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;6d7db550-d1c5-4e3b-9c0a-e83f6a2b8244&quot;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="attaching-pubkeys-to-a-server">
+<span id="attach-pubkeys-to-server"></span><h2>Attaching pubkeys to a server<a class="headerlink" href="#attaching-pubkeys-to-a-server" title="Permalink to this heading"></a></h2>
+<p>You can attach the keys to a server definition on the <code class="docutils literal notranslate"><span class="pre">pubkeys</span></code> attribute. They are made available to the VM OS via
+the <a class="reference internal" href="server_context.html"><span class="doc">server context</span></a>.</p>
+<p>Here is an example of doing that using the keys created in the above section:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/api/2.0/servers/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;objects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;cpu&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;cpu_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;amd&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;drives&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;hypervisor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;kvm&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;mem&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1073741824</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test_srv_test_pubkeys&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;nics&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;ip_v4_conf&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="nt">&quot;conf&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dhcp&quot;</span><span class="w"></span>
+<span class="w">                    </span><span class="p">},</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;virtio&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;pubkeys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;fdd6fbba-644b-49d8-9324-ff6589179da3&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;6d7db550-d1c5-4e3b-9c0a-e83f6a2b8244&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;vnc_password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7b08b0f03aa840ff&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">201</span><span class="w"> </span><span class="nx">CREATED</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;objects&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;context&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;cpu&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;cpu_model&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;cpu_type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;amd&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;cpus_instead_of_cores&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;drives&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;enable_numa&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;grantees&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;hv_relaxed&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;hv_tsc&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;hypervisor&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;kvm&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;jobs&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;mem&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1073741824</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test_srv_test_pubkeys&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;nics&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;boot_order&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;firewall_policy&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;ip_v4_conf&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="s2">&quot;conf&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;dhcp&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s2">&quot;ip&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"></span>
+<span class="w">                    </span><span class="p">},</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;ip_v6_conf&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;mac&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;22:30:3d:8a:b6:59&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;model&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;virtio&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;runtime&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;vlan&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;owner&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/user/c2fc9982-cf2e-434a-bf63-e22a27b39f00/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;c2fc9982-cf2e-434a-bf63-e22a27b39f00&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;pubkeys&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/pubkeys/fdd6fbba-644b-49d8-9324-ff6589179da3/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;fdd6fbba-644b-49d8-9324-ff6589179da3&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">},</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/pubkeys/6d7db550-d1c5-4e3b-9c0a-e83f6a2b8244/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;6d7db550-d1c5-4e3b-9c0a-e83f6a2b8244&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;requirements&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/servers/f400243b-7005-4222-b319-dff0a376c4ea/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;runtime&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;smp&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;status&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;stopped&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;tags&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;f400243b-7005-4222-b319-dff0a376c4ea&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;vnc_password&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;7b08b0f03aa840ff&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CloudSigma.
+      <span class="lastupdated">Last updated on Sep 13, 2023.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+HTTP/1.1 201 CREATED
+Content-Type: application/json; charset=utf-8
+
+{
+    "objects": [
+        {
+            "allocated_size": null,
+            "drive": {
+                "resource_uri": "/api/2.0/drives/7a555723-d73c-45cf-9f18-21f571626d2b/",
+                "uuid": "7a555723-d73c-45cf-9f18-21f571626d2b"
+            },
+            "meta": {},
+            "name": "7a555723-d73c-45cf-9f18-21f571626d2b__2014-01-30__15_35_30",
+            "owner": {
+                "resource_uri": "/api/2.0/user/80cb30fb-0ea3-43db-b27b-a125752cc0bf/",
+                "uuid": "80cb30fb-0ea3-43db-b27b-a125752cc0bf"
+            },
+            "resource_uri": "/api/2.0/snapshots/98fff982-a7d4-41bc-ae36-d748c988b375/",
+            "status": "creating",
+            "tags": [],
+            "timestamp": "2014-01-30 15:35:30.756919+00:00",
+            "uuid": "98fff982-a7d4-41bc-ae36-d748c988b375"
+        }
+    ]
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solaris Kernel Zone Servers &mdash; CloudSigma API v2 documentation</title>
+      <link rel="stylesheet" href="../../../../../../../../../../../../../../../../../../../../../../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../../../../../../../../../../../../../../../../../../../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../../../../../../../../../../../../../../../../../../../../../../../" id="documentation_options" src="../../../../../../../../../../../../../../../../../../../../../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../_static/doctools.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../../../../../../../../../../../../../../../../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../../../../../../../../../../../../../../../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: green" >
+
+          
+          
+          <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../index.html" class="icon icon-home">
+            CloudSigma API
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../../../../../../../../../../../../../../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../general.html">General Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../locations.html">Locations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../pagination.html">Pagination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../errors.html">Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../clone_naming.html">Clone naming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../drives.html">Drives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../snapshots.html">Snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../remote_snapshots.html">Remote Snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../libdrives.html">Library Drives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../upload_download.html">Upload or Download Drive Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../servers_vmware.html">VMWare Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../servers.html">Servers / VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../servers_kvm.html">KVM Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../servers_solariskz.html">Solaris Kernel Zone Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../keypairs.html">Keypairs (SSH keys)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../server_context.html">Server Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../network_interfaces.html">Server Network Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../tags.html">Tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../acls.html">ACLs (Access Control Lists)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../meta.html">Objects’ metadata field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../availability_groups.html">Availability Grouping and Avoid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../subscriptions.html">Subscriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../accounts.html">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../audit_logs.html">Audit logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../profile.html">Profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../notification_preferences.html">Notification contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../notification_preferences.html#notification-preferences">Notification preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../billing.html">Billing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../burst_usage.html">Burst Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../burst_usage.html#daily-burst-usage">Daily Burst Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../current_usage.html">Current Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../async.html">Asynchronous server</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: green" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../index.html">CloudSigma API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../../../../../../../../../../../../../../../../../../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Solaris Kernel Zone Servers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../_sources/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/servers_solariskz.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="solaris-kernel-zone-servers">
+<h1>Solaris Kernel Zone Servers<a class="headerlink" href="#solaris-kernel-zone-servers" title="Permalink to this heading"></a></h1>
+<section id="hypervisor-specific-notes">
+<h2>Hypervisor specific notes<a class="headerlink" href="#hypervisor-specific-notes" title="Permalink to this heading"></a></h2>
+<p>Solaris kernel zones require at least one bootable drive to be attached and it will only try to boot from drives that
+have a <cite>bootindex</cite> value. Additionally, they do not support booting over the network.</p>
+<p>Due to their nature, they do not support different drivers for network interfaces or drives. Additionally, the drive
+channel is ignored and the order of drives in the definition is passsed to the guest.</p>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div><p><strong>Example request</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/api/2.0/servers/</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop</span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;objects&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;cpu&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;cpu_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;intel&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;drives&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;boot_order&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;dev_channel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0:0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;device&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;virtio&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;drive&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4756666c-3755-4a55-9848-07f9bb403ba4&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;hypervisor&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;solaris-kz&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;mem&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1073741824</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test_skzserver&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;nics&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;ip_v4_conf&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="nt">&quot;conf&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dhcp&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                        </span><span class="nt">&quot;ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"></span>
+<span class="w">                    </span><span class="p">},</span><span class="w"></span>
+<span class="w">                    </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;virtio&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;vnc_password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;testskzserver&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">HTTP</span><span class="o">/</span><span class="mf">1.1</span><span class="w"> </span><span class="mf">201</span><span class="w"> </span><span class="nx">CREATED</span><span class="w"></span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="o">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span><span class="p">;</span><span class="w"> </span><span class="nx">charset</span><span class="o">=</span><span class="nx">utf</span><span class="o">-</span><span class="mf">8</span><span class="w"></span>
+
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;objects&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;context&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;cpu&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1000</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;cpu_model&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;cpu_type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;intel&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;cpus_instead_of_cores&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;drives&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;boot_order&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;dev_channel&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0:0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;device&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;virtio&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;drive&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/drives/4756666c-3755-4a55-9848-07f9bb403ba4/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;4756666c-3755-4a55-9848-07f9bb403ba4&quot;</span><span class="w"></span>
+<span class="w">                    </span><span class="p">},</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;runtime&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;enable_numa&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;grantees&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;hv_relaxed&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;hv_tsc&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;hypervisor&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;solaris-kz&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;jobs&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;mem&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1073741824</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;meta&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;test_skzserver&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;nics&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;boot_order&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;firewall_policy&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;ip_v4_conf&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                        </span><span class="s2">&quot;conf&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;dhcp&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s2">&quot;ip&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"></span>
+<span class="w">                    </span><span class="p">},</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;ip_v6_conf&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;mac&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;22:ec:5c:9b:18:e1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;model&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;virtio&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;runtime&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">                    </span><span class="s2">&quot;vlan&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;owner&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/user/c2fc9982-cf2e-434a-bf63-e22a27b39f00/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;c2fc9982-cf2e-434a-bf63-e22a27b39f00&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;permissions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;requirements&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;resource_uri&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;/api/2.0/servers/0dcd3592-702a-4fd0-9b69-0b2407f95222/&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;runtime&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;smp&quot;</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;status&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;stopped&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;tags&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;uuid&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;0dcd3592-702a-4fd0-9b69-0b2407f95222&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;vnc_password&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;testskzserver&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CloudSigma.
+      <span class="lastupdated">Last updated on Sep 13, 2023.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

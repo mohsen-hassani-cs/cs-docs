@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to CloudSigma API documentation! &mdash; CloudSigma API v2 documentation</title>
+      <link rel="stylesheet" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../" id="documentation_options" src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/jquery.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/underscore.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/doctools.js"></script>
+        <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: green" >
+
+          
+          
+          <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../index.html" class="icon icon-home">
+            CloudSigma API
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../general.html">General Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../locations.html">Locations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../pagination.html">Pagination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../errors.html">Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../clone_naming.html">Clone naming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../drives.html">Drives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../snapshots.html">Snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../remote_snapshots.html">Remote Snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../libdrives.html">Library Drives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../upload_download.html">Upload or Download Drive Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../servers_vmware.html">VMWare Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../servers.html">Servers / VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../servers_kvm.html">KVM Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../servers_solariskz.html">Solaris Kernel Zone Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../keypairs.html">Keypairs (SSH keys)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../server_context.html">Server Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../network_interfaces.html">Server Network Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../tags.html">Tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../acls.html">ACLs (Access Control Lists)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../meta.html">Objects’ metadata field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../availability_groups.html">Availability Grouping and Avoid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../subscriptions.html">Subscriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../accounts.html">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../audit_logs.html">Audit logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../profile.html">Profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../notification_preferences.html">Notification contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../notification_preferences.html#notification-preferences">Notification preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../billing.html">Billing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../burst_usage.html">Burst Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../burst_usage.html#daily-burst-usage">Daily Burst Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../current_usage.html">Current Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../async.html">Asynchronous server</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: green" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../index.html">CloudSigma API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to CloudSigma API documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../_sources/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-cloudsigma-api-documentation">
+<h1>Welcome to CloudSigma API documentation!<a class="headerlink" href="#welcome-to-cloudsigma-api-documentation" title="Permalink to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#chlorine-release">Chlorine Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#silicon-release">Silicon Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#aluminium-release">Aluminium Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#magnesium-release">Magnesium Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#sodium-release">Sodium Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#neon-release">Neon Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#fluorine-release">Fluorine Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#oxygen-release">Oxygen Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#nitrogen-release">Nitrogen Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#carbon-release">Carbon Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#boron-release">Boron Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#berilium-release">Berilium Release</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">General Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="general.html#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#api-endpoint">API endpoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#api-versions">API Versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#general-url-format">General URL Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#authentication">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#http-basic-auth">HTTP Basic Auth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#digest-access-authentication">Digest Access Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#cookie-based-authentication">Cookie-based Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#data-format-content-types">Data Format (Content Types)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#content-compression">Content Compression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#request-methods">Request Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#response-status-codes">Response Status Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#rate-limits">Rate Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#permitted-characters">Permitted characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="general.html#filtering">Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="locations.html">Locations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pagination.html">Pagination</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html#meta-information">Meta information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">Errors</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#format">Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#types">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="capabilities.html">Capabilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="capabilities.html#allowed-http-methods">Allowed HTTP methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="clone_naming.html">Clone naming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="clone_naming.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="drives.html">Drives</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#allowed-http-methods">Allowed HTTP methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#listing">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#detailed-listing">Detailed listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#list-single-drive">List single drive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#creating">Creating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#resizing-update-or-fail">Resizing (Update or Fail)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#meta">Meta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#deleting">Deleting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#cloning">Cloning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#availability-groups">Availability Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#creating-or-cloning-drives-to-different-infrastructure-avoid">Creating or Cloning Drives to Different Infrastructure (avoid)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#licenses">Licenses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#storage-types">Storage Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#rds-drives">RDS Drives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#drive-state-diagram">Drive State Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drives.html#schema">Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="snapshots.html">Snapshots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="snapshots.html#allowed-http-methods">Allowed HTTP methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshots.html#listing">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshots.html#detailed-listing">Detailed listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshots.html#list-single-snapshot">List single snapshot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshots.html#creating">Creating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshots.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshots.html#metadata">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshots.html#deleting">Deleting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshots.html#cloning">Cloning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshots.html#listing-drive-snapshots">Listing drive snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="snapshots.html#schema">Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="remote_snapshots.html">Remote Snapshots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="remote_snapshots.html#allowed-http-methods">Allowed HTTP methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_snapshots.html#listing">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_snapshots.html#detailed-listing">Detailed listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_snapshots.html#list-single-remote-snapshot">List single remote snapshot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_snapshots.html#creating">Creating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_snapshots.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_snapshots.html#metadata">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_snapshots.html#deleting">Deleting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_snapshots.html#cloning">Cloning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_snapshots.html#listing-a-drive-s-remote-snapshots">Listing a drive’s remote snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="remote_snapshots.html#schema">Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="libdrives.html">Library Drives</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="libdrives.html#allowed-http-methods">Allowed HTTP methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdrives.html#listing">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdrives.html#detailed-listing">Detailed listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdrives.html#list-single-drive">List single drive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdrives.html#attaching-library-drive">Attaching library drive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdrives.html#cloning-library-drive">Cloning library drive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdrives.html#licensed-drive-images">Licensed drive images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdrives.html#recognizing-library-drives">Recognizing library drives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libdrives.html#schema">Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="upload_download.html">Upload or Download Drive Images</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="upload_download.html#uploading-a-drive-image">Uploading a drive image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upload_download.html#downloading-a-drive-image">Downloading a drive image</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="servers_vmware.html">VMWare Servers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="servers_vmware.html#vmmware-specific-notes">VMMware specific notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="servers.html">Servers / VMs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#hypervisors">Hypervisors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#allowed-http-methods">Allowed HTTP methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#listing">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#detailed-listing">Detailed listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#creating">Creating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#attach-a-drive">Attach a drive</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#metadata">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#deleting">Deleting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#server-runtime-and-server-details">Server Runtime and Server Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#server-actions">Server Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#server-nic-configurations">Server NIC Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#availability-groups">Availability groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#public-keys">Public keys</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#vgpus">vGPUs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#sgx">SGX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#server-state-diagram">Server State Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers.html#schema">Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="servers_kvm.html">KVM Servers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="servers_kvm.html#device-channel">Device channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers_kvm.html#open-vnc-tunnel">Open VNC Tunnel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers_kvm.html#close-vnc-tunnel">Close VNC Tunnel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="servers_solariskz.html">Solaris Kernel Zone Servers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="servers_solariskz.html#hypervisor-specific-notes">Hypervisor specific notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="servers_solariskz.html#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="keypairs.html">Keypairs (SSH keys)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="keypairs.html#creating-a-keypair">Creating a keypair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keypairs.html#listing-getting-updating-deleting">Listing, Getting, Updating, Deleting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keypairs.html#pubkeys-resource">Pubkeys resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="keypairs.html#attaching-pubkeys-to-a-server">Attaching pubkeys to a server</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="server_context.html">Server Context</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="server_context.html#context-schema">Context schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server_context.html#setting-up-the-virtual-serial-port">Setting up the virtual serial port</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server_context.html#server-context-protocol">Server Context Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server_context.html#passing-information-to-the-vm">Passing information to the VM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="server_context.html#global-context">Global context</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network_interfaces.html">Server Network Interfaces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="network_interfaces.html#private-and-public-network-interfaces">Private and Public Network Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_interfaces.html#ip-assignment-for-public-interfaces">IP Assignment for Public Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_interfaces.html#mac-addresses">MAC Addresses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_interfaces.html#nic-models">NIC Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_interfaces.html#nic-runtime">NIC Runtime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="network_interfaces.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="networking.html">Networking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#vlan">VLAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#allowed-http-methods">Allowed HTTP methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#listing">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#detailed-listing">Detailed listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#get-single-vlan">Get single VLAN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#creating">Creating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#metadata">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#deleting">Deleting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#attaching-to-servers">Attaching To servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#id1">Allowed HTTP methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#id2">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#id3">Detailed listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#get-single-ip">Get single IP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#id4">Creating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#id5">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#id6">Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#id7">Deleting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#id8">Attaching To servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="networking.html#schema">Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tags.html">Tags</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tags.html#allowed-http-methods">Allowed HTTP methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags.html#listing">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags.html#list-single-tag">List single tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags.html#creating">Creating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags.html#deleting">Deleting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tags.html#filter-servers-drives-ips-or-vlans-listing-by-tag">Filter Servers, Drives, IPs or VLANs listing by tag</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acls.html">ACLs (Access Control Lists)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="acls.html#allowed-http-methods">Allowed HTTP methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acls.html#listing">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acls.html#list-single-acl">List Single ACL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acls.html#creating">Creating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acls.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acls.html#deleting">Deleting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acls.html#full-example-of-sharing-a-resource">Full Example of Sharing a Resource</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acls.html#permissions-on-resources-attached-to-a-server">Permissions on Resources Attached to a Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acls.html#recognizing-shared-resources-and-what-permissions-are-given-on-them">Recognizing Shared Resources and What Permissions Are Given on Them</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acls.html#schema">Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jobs.html">Jobs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#how-it-works">How it works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jobs.html#schema">Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="meta.html">Objects’ metadata field</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="meta.html#server-s-metadata-fields-with-special-meaning">Server’s metadata fields with special meaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meta.html#drive-s-metadata-fields-with-special-meaning">Drive’s metadata fields with special meaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="meta.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="availability_groups.html">Availability Grouping and Avoid</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="availability_groups.html#checking-availability-groups-for-drives-and-servers">Checking Availability Groups for Drives and Servers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="availability_groups.html#general-notes-on-avoid-functionality">General Notes on Avoid Functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="availability_groups.html#starting-servers-in-a-different-availability-group-start-avoid">Starting Servers in a Different Availability Group (Start Avoid)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="availability_groups.html#creating-drives-in-a-different-availability-group-create-clone-avoid">Creating Drives in a Different Availability Group (Create/Clone Avoid)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="availability_groups.html#recipe-for-creating-a-redundant-server-backed-by-separate-infrastructure">Recipe for Creating a Redundant Server Backed by Separate Infrastructure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="subscriptions.html">Subscriptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="subscriptions.html#statuses">Statuses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subscriptions.html#listing">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subscriptions.html#subscription-duration">Subscription duration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subscriptions.html#creating">Creating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subscriptions.html#extending">Extending</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subscriptions.html#autorenewing">Autorenewing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subscriptions.html#grouped-subscriptions">Grouped subscriptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subscriptions.html#calculator">Calculator</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Accounts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="accounts.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts.html#create-account">Create account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="accounts.html#login-logout">Login/Logout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="audit_logs.html">Audit logs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="audit_logs.html#general">General</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit_logs.html#actions">Actions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit_logs.html#errors">Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit_logs.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="audit_logs.html#schema">Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="profile.html">Profile</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="profile.html#allowed-http-methods">Allowed HTTP methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html#listing">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profile.html#schema">Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notification_preferences.html">Notification contacts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notification_preferences.html#listing">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_preferences.html#creating">Creating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_preferences.html#editing">Editing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_preferences.html#deleting">Deleting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notification_preferences.html#notification-preferences">Notification preferences</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notification_preferences.html#id1">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notification_preferences.html#updating">Updating</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="billing.html">Billing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="billing.html#balance">Balance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="billing.html#pricing">Pricing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="billing.html#discounts">Discounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="billing.html#transaction-list">Transaction list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="billing.html#id11">Discounts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="billing.html#current-usage">Current usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="billing.html#licenses-list">Licenses list</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="burst_usage.html">Burst Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="burst_usage.html#allowed-http-methods">Allowed HTTP methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="burst_usage.html#listing">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="burst_usage.html#filtering">Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="burst_usage.html#daily-burst-usage">Daily Burst Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="burst_usage.html#id1">Allowed HTTP methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="burst_usage.html#id2">Listing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="burst_usage.html#id3">Filtering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="current_usage.html">Current Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="current_usage.html#allowed-http-methods">Allowed HTTP methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="current_usage.html#listing">Listing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="async.html">Asynchronous server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="async.html#authentication">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="async.html#information">Information</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../../search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CloudSigma.
+      <span class="lastupdated">Last updated on Sep 13, 2023.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

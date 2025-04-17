@@ -1,0 +1,5 @@
+GET /api/2.0/jobs/4e1944be-a078-4ead-9d19-5f8823a84d42/ HTTP/1.1
+Content-Type: application/json
+Authorization: Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop
+
+

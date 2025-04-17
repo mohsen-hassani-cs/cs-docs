@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTTP Routing Table &mdash; CloudSigma API v2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+ 
+
+    <script>
+      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
+    </script>
+
+
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: green" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CloudSigma API
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">General Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="locations.html">Locations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pagination.html">Pagination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errors.html">Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clone_naming.html">Clone naming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drives.html">Drives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snapshots.html">Snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_snapshots.html">Remote Snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libdrives.html">Library Drives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="upload_download.html">Upload or Download Drive Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servers_vmware.html">VMWare Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servers.html">Servers / VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servers_kvm.html">KVM Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="servers_solariskz.html">Solaris Kernel Zone Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keypairs.html">Keypairs (SSH keys)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="server_context.html">Server Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_interfaces.html">Server Network Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tags.html">Tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acls.html">ACLs (Access Control Lists)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta.html">Objects’ metadata field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="availability_groups.html">Availability Grouping and Avoid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subscriptions.html">Subscriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="accounts.html">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audit_logs.html">Audit logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="profile.html">Profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notification_preferences.html">Notification contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notification_preferences.html#notification-preferences">Notification preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="billing.html">Billing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burst_usage.html">Burst Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burst_usage.html#daily-burst-usage">Daily Burst Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="current_usage.html">Current Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="async.html">Asynchronous server</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: green" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CloudSigma API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">HTTP Routing Table</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+   <h1>HTTP Routing Table</h1>
+
+   <div class="modindex-jumpbox">
+   <a href="#cap-/accounts"><strong>/accounts</strong></a> | 
+   <a href="#cap-/acls"><strong>/acls</strong></a> | 
+   <a href="#cap-/addressforwards"><strong>/addressforwards</strong></a> | 
+   <a href="#cap-/backupschedulers"><strong>/backupschedulers</strong></a> | 
+   <a href="#cap-/balance"><strong>/balance</strong></a> | 
+   <a href="#cap-/bservers"><strong>/bservers</strong></a> | 
+   <a href="#cap-/burstusage"><strong>/burstusage</strong></a> | 
+   <a href="#cap-/capabilities"><strong>/capabilities</strong></a> | 
+   <a href="#cap-/currentusage"><strong>/currentusage</strong></a> | 
+   <a href="#cap-/dailyburstusage"><strong>/dailyburstusage</strong></a> | 
+   <a href="#cap-/discount"><strong>/discount</strong></a> | 
+   <a href="#cap-/drives"><strong>/drives</strong></a> | 
+   <a href="#cap-/driveusers"><strong>/driveusers</strong></a> | 
+   <a href="#cap-/global_context"><strong>/global_context</strong></a> | 
+   <a href="#cap-/groupedsubscriptions"><strong>/groupedsubscriptions</strong></a> | 
+   <a href="#cap-/https:"><strong>/https:</strong></a> | 
+   <a href="#cap-/ipaliases"><strong>/ipaliases</strong></a> | 
+   <a href="#cap-/ips"><strong>/ips</strong></a> | 
+   <a href="#cap-/keypairs"><strong>/keypairs</strong></a> | 
+   <a href="#cap-/lans"><strong>/lans</strong></a> | 
+   <a href="#cap-/ledger"><strong>/ledger</strong></a> | 
+   <a href="#cap-/libdrives"><strong>/libdrives</strong></a> | 
+   <a href="#cap-/licenses"><strong>/licenses</strong></a> | 
+   <a href="#cap-/locations"><strong>/locations</strong></a> | 
+   <a href="#cap-/logs"><strong>/logs</strong></a> | 
+   <a href="#cap-/notification_contacts"><strong>/notification_contacts</strong></a> | 
+   <a href="#cap-/notification_preferences"><strong>/notification_preferences</strong></a> | 
+   <a href="#cap-/portforwards"><strong>/portforwards</strong></a> | 
+   <a href="#cap-/pricing"><strong>/pricing</strong></a> | 
+   <a href="#cap-/profile"><strong>/profile</strong></a> | 
+   <a href="#cap-/remotesnapshots"><strong>/remotesnapshots</strong></a> | 
+   <a href="#cap-/routes"><strong>/routes</strong></a> | 
+   <a href="#cap-/servers"><strong>/servers</strong></a> | 
+   <a href="#cap-/snapshots"><strong>/snapshots</strong></a> | 
+   <a href="#cap-/subscriptioncalculator"><strong>/subscriptioncalculator</strong></a> | 
+   <a href="#cap-/subscriptions"><strong>/subscriptions</strong></a> | 
+   <a href="#cap-/tag"><strong>/tag</strong></a> | 
+   <a href="#cap-/tags"><strong>/tags</strong></a> | 
+   <a href="#cap-/tunnels"><strong>/tunnels</strong></a> | 
+   <a href="#cap-/upstream"><strong>/upstream</strong></a> | 
+   <a href="#cap-/virtualrouters"><strong>/virtualrouters</strong></a> | 
+   <a href="#cap-/vlans"><strong>/vlans</strong></a> | 
+   <a href="#cap-/vmware_servers"><strong>/vmware_servers</strong></a> | 
+   <a href="#cap-/vrfwfilters"><strong>/vrfwfilters</strong></a> | 
+   <a href="#cap-/vrfwpolicies"><strong>/vrfwpolicies</strong></a>
+   </div>
+
+   <table class="indextable modindextable">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/accounts"><td></td><td>
+       <strong>/accounts</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/accounts.html#post--accounts-action-?do=check_login"><code class="xref">POST /accounts/action/?do=check_login</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/accounts.html#post--accounts-action-?do=create"><code class="xref">POST /accounts/action/?do=create</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/accounts.html#post--accounts-action-?do=login"><code class="xref">POST /accounts/action/?do=login</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/accounts.html#post--accounts-action-?do=logout"><code class="xref">POST /accounts/action/?do=logout</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/acls"><td></td><td>
+       <strong>/acls</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/acls.html#get--acls-"><code class="xref">GET /acls/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/acls.html#get--acls-(uuid-acl_uuid)-"><code class="xref">GET /acls/(uuid:acl_uuid)/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/acls.html#post--acls-"><code class="xref">POST /acls/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/acls.html#put--acls-uuid-"><code class="xref">PUT /acls/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/acls.html#delete--acls-uuid-"><code class="xref">DELETE /acls/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/addressforwards"><td></td><td>
+       <strong>/addressforwards</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_address_forwarding.html#get--addressforwards-addressforward_uuid-"><code class="xref">GET /addressforwards/{addressforward_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_address_forwarding.html#post--addressforwards-"><code class="xref">POST /addressforwards/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_address_forwarding.html#delete--addressforwards-addressforward_uuid-"><code class="xref">DELETE /addressforwards/{addressforward_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/backupschedulers"><td></td><td>
+       <strong>/backupschedulers</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backup_schedulers.html#get--backupschedulers-"><code class="xref">GET /backupschedulers/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backup_schedulers.html#get--backupschedulers-?type=scheduler_type"><code class="xref">GET /backupschedulers/?type=scheduler_type</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backup_schedulers.html#get--backupschedulers-detail-"><code class="xref">GET /backupschedulers/detail/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backup_schedulers.html#get--backupschedulers-detail-?type=scheduler_type"><code class="xref">GET /backupschedulers/detail/?type=scheduler_type</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backup_schedulers.html#get--backupschedulers-backupscheduler_uuid-"><code class="xref">GET /backupschedulers/{backupscheduler_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backup_schedulers.html#post--backupschedulers-"><code class="xref">POST /backupschedulers/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backup_schedulers.html#put--backupschedulers-backupscheduler_uuid-"><code class="xref">PUT /backupschedulers/{backupscheduler_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backup_schedulers.html#delete--backupschedulers-"><code class="xref">DELETE /backupschedulers/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backup_schedulers.html#delete--backupschedulers-uuid-"><code class="xref">DELETE /backupschedulers/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/balance"><td></td><td>
+       <strong>/balance</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/billing.html#get--balance-"><code class="xref">GET /balance/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/bservers"><td></td><td>
+       <strong>/bservers</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backfilling.html#get--bservers-"><code class="xref">GET /bservers/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backfilling.html#get--bservers-detail-"><code class="xref">GET /bservers/detail/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backfilling.html#get--bservers-uuid-"><code class="xref">GET /bservers/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backfilling.html#post--bservers-"><code class="xref">POST /bservers/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backfilling.html#post--bservers-uuid-action-?do=start"><code class="xref">POST /bservers/{uuid}/action/?do=start</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backfilling.html#post--bservers-uuid-action-?do=stop"><code class="xref">POST /bservers/{uuid}/action/?do=stop</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backfilling.html#put--bservers-uuid-"><code class="xref">PUT /bservers/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backfilling.html#delete--bservers-uuid-"><code class="xref">DELETE /bservers/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/burstusage"><td></td><td>
+       <strong>/burstusage</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/burst_usage.html#get--burstusage-"><code class="xref">GET /burstusage/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/capabilities"><td></td><td>
+       <strong>/capabilities</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/capabilities.html#get--capabilities-"><code class="xref">GET /capabilities/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/currentusage"><td></td><td>
+       <strong>/currentusage</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/current_usage.html#get--currentusage-"><code class="xref">GET /currentusage/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/dailyburstusage"><td></td><td>
+       <strong>/dailyburstusage</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/burst_usage.html#get--dailyburstusage-"><code class="xref">GET /dailyburstusage/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/discount"><td></td><td>
+       <strong>/discount</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/billing.html#get--discount-"><code class="xref">GET /discount/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/drives"><td></td><td>
+       <strong>/drives</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/drives.html#get--drives-"><code class="xref">GET /drives/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/availability_groups.html#get--drives-availability_groups-"><code class="xref">GET /drives/availability_groups/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/availability_groups.html#get--drives-availability_groups-uuid-"><code class="xref">GET /drives/availability_groups/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/drives.html#get--drives-detail-"><code class="xref">GET /drives/detail/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/snapshots.html#get--drives-drive_uuid-"><code class="xref">GET /drives/{drive_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/drives.html#get--drives-uuid-"><code class="xref">GET /drives/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/drives.html#post--drives-"><code class="xref">POST /drives/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/availability_groups.html#post--drives-?avoid=-server_or_drive_uuid1-,-server_or_drive_uuid2-,..."><code class="xref">POST /drives/?avoid={&lt;server_or_drive_uuid1&gt;,&lt;server_or_drive_uuid2&gt;,...}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backup_schedulers.html#post--drives-drive_uuid-action-?do=set_scheduler"><code class="xref">POST /drives/{drive_uuid}/action/?do=set_scheduler</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/drives.html#post--drives-uuid-action-?do=clone"><code class="xref">POST /drives/{uuid}/action/?do=clone</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/availability_groups.html#post--drives-uuid-action-?do=clone&avoid=-server_or_drive_uuid1-,-server_or_drive_uuid2-,..."><code class="xref">POST /drives/{uuid}/action/?do=clone&amp;avoid={&lt;server_or_drive_uuid1&gt;,&lt;server_or_drive_uuid2&gt;,...}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/drives.html#post--drives-uuid-action-?do=resize"><code class="xref">POST /drives/{uuid}/action/?do=resize</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/drives.html#put--drives-uuid-"><code class="xref">PUT /drives/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/drives.html#delete--drives-"><code class="xref">DELETE /drives/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/drives.html#delete--drives-uuid-"><code class="xref">DELETE /drives/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/driveusers"><td></td><td>
+       <strong>/driveusers</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/drives.html#get--driveusers-"><code class="xref">GET /driveusers/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/drives.html#get--driveusers-drive_uuid-"><code class="xref">GET /driveusers/{drive_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/drives.html#post--driveusers-"><code class="xref">POST /driveusers/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/drives.html#put--driveusers-drive_uuid-"><code class="xref">PUT /driveusers/{drive_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/drives.html#delete--driveusers-drive_uuid-"><code class="xref">DELETE /driveusers/{drive_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/global_context"><td></td><td>
+       <strong>/global_context</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/server_context.html#get--global_context-"><code class="xref">GET /global_context/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/server_context.html#post--global_context-"><code class="xref">POST /global_context/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/groupedsubscriptions"><td></td><td>
+       <strong>/groupedsubscriptions</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/subscriptions.html#get--groupedsubscriptions-"><code class="xref">GET /groupedsubscriptions/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/https:"><td></td><td>
+       <strong>/https:</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/upload_download.html#get-https---direct.loc.cloudsigma.com-api-2.0-drives-uuid-download-"><code class="xref">GET https://direct.{loc}.cloudsigma.com/api/2.0/drives/{uuid}/download/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/upload_download.html#post-https---direct.loc.cloudsigma.com-api-2.0-drives-upload-"><code class="xref">POST https://direct.{loc}.cloudsigma.com/api/2.0/drives/upload/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/ipaliases"><td></td><td>
+       <strong>/ipaliases</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_ipaliases.html#get--ipaliases-ipalias_uuid-"><code class="xref">GET /ipaliases/{ipalias_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_ipaliases.html#post--ipaliases-"><code class="xref">POST /ipaliases/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_ipaliases.html#delete--ipaliases-ipalias_uuid-"><code class="xref">DELETE /ipaliases/{ipalias_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/ips"><td></td><td>
+       <strong>/ips</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/networking.html#get--ips-"><code class="xref">GET /ips/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/networking.html#get--ips-(uuid-ip_uuid)-"><code class="xref">GET /ips/(uuid:ip_uuid)/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/networking.html#get--ips-detail-"><code class="xref">GET /ips/detail/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/networking.html#put--ips-(uuid-ip_uuid)-"><code class="xref">PUT /ips/(uuid:ip_uuid)/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/keypairs"><td></td><td>
+       <strong>/keypairs</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/keypairs.html#get--keypairs-"><code class="xref">GET /keypairs/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/keypairs.html#get--keypairs-uuid-"><code class="xref">GET /keypairs/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/keypairs.html#post--keypairs-"><code class="xref">POST /keypairs/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/keypairs.html#put--keypairs-uuid-"><code class="xref">PUT /keypairs/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/keypairs.html#delete--keypairs-uuid-"><code class="xref">DELETE /keypairs/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/lans"><td></td><td>
+       <strong>/lans</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_lans.html#post--lans-uuid-action-?do=configure_dhcp"><code class="xref">POST /lans/{uuid}/action/?do=configure_dhcp</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/ledger"><td></td><td>
+       <strong>/ledger</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/billing.html#get--ledger-"><code class="xref">GET /ledger/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/libdrives"><td></td><td>
+       <strong>/libdrives</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/libdrives.html#get--libdrives-"><code class="xref">GET /libdrives/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/libdrives.html#get--libdrives-uuid-"><code class="xref">GET /libdrives/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/libdrives.html#post--libdrives-uuid-action-?do=clone"><code class="xref">POST /libdrives/{uuid}/action/?do=clone</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/licenses"><td></td><td>
+       <strong>/licenses</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/billing.html#get--licenses-"><code class="xref">GET /licenses/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/locations"><td></td><td>
+       <strong>/locations</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/locations.html#get--locations-"><code class="xref">GET /locations/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/logs"><td></td><td>
+       <strong>/logs</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/audit_logs.html#get--logs-"><code class="xref">GET /logs/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/audit_logs.html#get--logs-schema-"><code class="xref">GET /logs/schema/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/notification_contacts"><td></td><td>
+       <strong>/notification_contacts</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/notification_preferences.html#get--notification_contacts-"><code class="xref">GET /notification_contacts/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/notification_preferences.html#post--notification_contacts-"><code class="xref">POST /notification_contacts/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/notification_preferences.html#put--notification_contacts-uuid-"><code class="xref">PUT /notification_contacts/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/notification_preferences.html#delete--notification_contacts-uuid-"><code class="xref">DELETE /notification_contacts/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/notification_preferences"><td></td><td>
+       <strong>/notification_preferences</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/notification_preferences.html#get--notification_preferences-"><code class="xref">GET /notification_preferences/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/notification_preferences.html#put--notification_preferences-"><code class="xref">PUT /notification_preferences/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/portforwards"><td></td><td>
+       <strong>/portforwards</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_port_forwarding.html#get--portforwards-portforward_uuid-"><code class="xref">GET /portforwards/{portforward_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_port_forwarding.html#post--portforwards-"><code class="xref">POST /portforwards/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_port_forwarding.html#delete--portforwards-portforward_uuid-"><code class="xref">DELETE /portforwards/{portforward_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/pricing"><td></td><td>
+       <strong>/pricing</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/billing.html#get--pricing-"><code class="xref">GET /pricing/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/profile"><td></td><td>
+       <strong>/profile</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/profile.html#get--profile-"><code class="xref">GET /profile/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/profile.html#put--profile-"><code class="xref">PUT /profile/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/remotesnapshots"><td></td><td>
+       <strong>/remotesnapshots</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/remote_snapshots.html#get--remotesnapshots-"><code class="xref">GET /remotesnapshots/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/remote_snapshots.html#get--remotesnapshots-detail-"><code class="xref">GET /remotesnapshots/detail/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/remote_snapshots.html#get--remotesnapshots-uuid-"><code class="xref">GET /remotesnapshots/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/remote_snapshots.html#get--remotesnapshots-uuid-?drive=drive_uuid"><code class="xref">GET /remotesnapshots/{uuid}/?drive={drive_uuid}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/remote_snapshots.html#post--remotesnapshots-"><code class="xref">POST /remotesnapshots/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/remote_snapshots.html#post--remotesnapshots-uuid-action-?do=clone"><code class="xref">POST /remotesnapshots/{uuid}/action/?do=clone</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/remote_snapshots.html#put--remotesnapshots-uuid-"><code class="xref">PUT /remotesnapshots/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/remote_snapshots.html#delete--remotesnapshots-"><code class="xref">DELETE /remotesnapshots/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/remote_snapshots.html#delete--remotesnapshots-uuid-"><code class="xref">DELETE /remotesnapshots/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/routes"><td></td><td>
+       <strong>/routes</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_routes.html#get--routes-route_uuid-"><code class="xref">GET /routes/{route_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_routes.html#post--routes-"><code class="xref">POST /routes/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_routes.html#delete--routes-route_uuid-"><code class="xref">DELETE /routes/{route_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/servers"><td></td><td>
+       <strong>/servers</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers.html#get--servers-"><code class="xref">GET /servers/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/availability_groups.html#get--servers-availability_groups-"><code class="xref">GET /servers/availability_groups/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/availability_groups.html#get--servers-availability_groups-uuid-"><code class="xref">GET /servers/availability_groups/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers.html#get--servers-detail-"><code class="xref">GET /servers/detail/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers.html#get--servers-uuid-"><code class="xref">GET /servers/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers.html#post--servers-"><code class="xref">POST /servers/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/availability_groups.html#post--servers-server_uuid-action-?do=clone&avoid=-server_or_drive_uuid1-,-server_or_drive_uuid2-,..."><code class="xref">POST /servers/{server_uuid}/action/?do=clone&amp;avoid={&lt;server_or_drive_uuid1&gt;,&lt;server_or_drive_uuid2&gt;,...}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers.html#post--servers-uuid-action-?do=clone"><code class="xref">POST /servers/{uuid}/action/?do=clone</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers.html#post--servers-uuid-action-?do=close_console"><code class="xref">POST /servers/{uuid}/action/?do=close_console</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers_kvm.html#post--servers-uuid-action-?do=close_vnc"><code class="xref">POST /servers/{uuid}/action/?do=close_vnc</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers.html#post--servers-uuid-action-?do=open_console"><code class="xref">POST /servers/{uuid}/action/?do=open_console</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers_kvm.html#post--servers-uuid-action-?do=open_vnc"><code class="xref">POST /servers/{uuid}/action/?do=open_vnc</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers.html#post--servers-uuid-action-?do=shutdown"><code class="xref">POST /servers/{uuid}/action/?do=shutdown</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers.html#post--servers-uuid-action-?do=start"><code class="xref">POST /servers/{uuid}/action/?do=start</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/availability_groups.html#post--servers-uuid-action-?do=start&avoid=-server1_uuid-,-server2_uuid-,..."><code class="xref">POST /servers/{uuid}/action/?do=start&amp;avoid={&lt;server1_uuid&gt;,&lt;server2_uuid&gt;,...}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers.html#post--servers-uuid-action-?do=stop"><code class="xref">POST /servers/{uuid}/action/?do=stop</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers.html#put--servers-uuid-"><code class="xref">PUT /servers/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers.html#delete--servers-uuid-"><code class="xref">DELETE /servers/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers.html#delete--servers-uuid-?recurse=recurse_option"><code class="xref">DELETE /servers/{uuid}/?recurse={recurse_option}</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/snapshots"><td></td><td>
+       <strong>/snapshots</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/snapshots.html#get--snapshots-"><code class="xref">GET /snapshots/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/snapshots.html#get--snapshots-detail-"><code class="xref">GET /snapshots/detail/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/snapshots.html#get--snapshots-uuid-"><code class="xref">GET /snapshots/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/snapshots.html#get--snapshots-uuid-?drive=drive_uuid"><code class="xref">GET /snapshots/{uuid}/?drive={drive_uuid}</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/snapshots.html#post--snapshots-"><code class="xref">POST /snapshots/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/snapshots.html#post--snapshots-uuid-action-?do=clone"><code class="xref">POST /snapshots/{uuid}/action/?do=clone</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/snapshots.html#put--snapshots-uuid-"><code class="xref">PUT /snapshots/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/snapshots.html#delete--snapshots-"><code class="xref">DELETE /snapshots/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/snapshots.html#delete--snapshots-uuid-"><code class="xref">DELETE /snapshots/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/subscriptioncalculator"><td></td><td>
+       <strong>/subscriptioncalculator</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/subscriptions.html#post--subscriptioncalculator-"><code class="xref">POST /subscriptioncalculator/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/subscriptions"><td></td><td>
+       <strong>/subscriptions</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/subscriptions.html#get--subscriptions-"><code class="xref">GET /subscriptions/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/subscriptions.html#post--subscriptions-"><code class="xref">POST /subscriptions/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/subscriptions.html#post--subscriptions-id-action-?do=auto_renew"><code class="xref">POST /subscriptions/{id}/action/?do=auto_renew</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/subscriptions.html#post--subscriptions-id-action-?do=extend"><code class="xref">POST /subscriptions/{id}/action/?do=extend</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/tag"><td></td><td>
+       <strong>/tag</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/tags.html#get--tag-(uuid-tag_uuid)-"><code class="xref">GET /tag/(uuid:tag_uuid)/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/tags"><td></td><td>
+       <strong>/tags</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/tags.html#get--tags-"><code class="xref">GET /tags/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/tags.html#get--tags-uuid-resource_type-"><code class="xref">GET /tags/{uuid}/{resource_type}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/tags.html#post--tags-"><code class="xref">POST /tags/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/tags.html#put--tags-uuid-"><code class="xref">PUT /tags/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/tags.html#delete--tags-uuid-"><code class="xref">DELETE /tags/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/tunnels"><td></td><td>
+       <strong>/tunnels</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_vpn_tunnels.html#get--tunnels-tunnel_uuid-"><code class="xref">GET /tunnels/{tunnel_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_vpn_tunnels.html#post--tunnels-"><code class="xref">POST /tunnels/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_vpn_tunnels.html#put--tunnels-tunnel_uuid-"><code class="xref">PUT /tunnels/{tunnel_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_vpn_tunnels.html#delete--tunnels-tunnel_uuid-"><code class="xref">DELETE /tunnels/{tunnel_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/upstream"><td></td><td>
+       <strong>/upstream</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_upstream.html#post--upstream-uuid-action-?do=configure_vpn"><code class="xref">POST /upstream/{uuid}/action/?do=configure_vpn</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/virtualrouters"><td></td><td>
+       <strong>/virtualrouters</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#get--virtualrouters-"><code class="xref">GET /virtualrouters/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#get--virtualrouters-detail-"><code class="xref">GET /virtualrouters/detail/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#get--virtualrouters-virtualrouter_uuid-"><code class="xref">GET /virtualrouters/{virtualrouter_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#post--virtualrouters-"><code class="xref">POST /virtualrouters/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#post--virtualrouters-virtualrouter_uuid-action-?do=disable_firewall"><code class="xref">POST /virtualrouters/{virtualrouter_uuid}/action/?do=disable_firewall</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#post--virtualrouters-virtualrouter_uuid-action-?do=disable_firewall_logging"><code class="xref">POST /virtualrouters/{virtualrouter_uuid}/action/?do=disable_firewall_logging</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#post--virtualrouters-virtualrouter_uuid-action-?do=disable_nat"><code class="xref">POST /virtualrouters/{virtualrouter_uuid}/action/?do=disable_nat</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#post--virtualrouters-virtualrouter_uuid-action-?do=disable_vpn"><code class="xref">POST /virtualrouters/{virtualrouter_uuid}/action/?do=disable_vpn</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#post--virtualrouters-virtualrouter_uuid-action-?do=enable_firewall"><code class="xref">POST /virtualrouters/{virtualrouter_uuid}/action/?do=enable_firewall</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#post--virtualrouters-virtualrouter_uuid-action-?do=enable_firewall_logging"><code class="xref">POST /virtualrouters/{virtualrouter_uuid}/action/?do=enable_firewall_logging</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#post--virtualrouters-virtualrouter_uuid-action-?do=enable_nat"><code class="xref">POST /virtualrouters/{virtualrouter_uuid}/action/?do=enable_nat</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#post--virtualrouters-virtualrouter_uuid-action-?do=enable_vpn"><code class="xref">POST /virtualrouters/{virtualrouter_uuid}/action/?do=enable_vpn</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#post--virtualrouters-virtualrouter_uuid-action-?do=export_key"><code class="xref">POST /virtualrouters/{virtualrouter_uuid}/action/?do=export_key</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#post--virtualrouters-virtualrouter_uuid-action-?do=get_keys"><code class="xref">POST /virtualrouters/{virtualrouter_uuid}/action/?do=get_keys</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#post--virtualrouters-virtualrouter_uuid-action-?do=get_log"><code class="xref">POST /virtualrouters/{virtualrouter_uuid}/action/?do=get_log</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_lans.html#put--virtualrouters-uuid-"><code class="xref">PUT /virtualrouters/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters.html#delete--virtualrouters-virtualrouter_uuid-"><code class="xref">DELETE /virtualrouters/{virtualrouter_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/vlans"><td></td><td>
+       <strong>/vlans</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/networking.html#get--vlans-"><code class="xref">GET /vlans/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/networking.html#get--vlans-(uuid-vlan_uuid)-"><code class="xref">GET /vlans/(uuid:vlan_uuid)/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/networking.html#get--vlans-detail-"><code class="xref">GET /vlans/detail/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/networking.html#put--vlans-(uuid-vlan_uuid)-"><code class="xref">PUT /vlans/(uuid:vlan_uuid)/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/vmware_servers"><td></td><td>
+       <strong>/vmware_servers</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="cloudsigma-docs/servers_vmware.html#get--vmware_servers-"><code class="xref">GET /vmware_servers/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/vrfwfilters"><td></td><td>
+       <strong>/vrfwfilters</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_firewall_filters.html#get--vrfwfilters-vrfwfilter_uuid-"><code class="xref">GET /vrfwfilters/{vrfwfilter_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_firewall_filters.html#post--vrfwfilters-"><code class="xref">POST /vrfwfilters/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_firewall_filters.html#post--vrfwfilters-vrfwfilter_uuid-action-?do=disable_logging"><code class="xref">POST /vrfwfilters/{vrfwfilter_uuid}/action/?do=disable_logging</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_firewall_filters.html#post--vrfwfilters-vrfwfilter_uuid-action-?do=enable_logging"><code class="xref">POST /vrfwfilters/{vrfwfilter_uuid}/action/?do=enable_logging</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_firewall_filters.html#delete--vrfwfilters-vrfwfilter_uuid-"><code class="xref">DELETE /vrfwfilters/{vrfwfilter_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-/vrfwpolicies"><td></td><td>
+       <strong>/vrfwpolicies</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_firewall_policies.html#get--vrfwpolicies-vrfwpolicy_uuid-"><code class="xref">GET /vrfwpolicies/{vrfwpolicy_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_firewall_policies.html#post--vrfwpolicies-"><code class="xref">POST /vrfwpolicies/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_firewall_policies.html#post--vrfwpolicies-vrfwpolicy_uuid-action-?do=disable"><code class="xref">POST /vrfwpolicies/{vrfwpolicy_uuid}/action/?do=disable</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_firewall_policies.html#post--vrfwpolicies-vrfwpolicy_uuid-action-?do=enable"><code class="xref">POST /vrfwpolicies/{vrfwpolicy_uuid}/action/?do=enable</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_firewall_policies.html#put--vrfwpolicies-uuid-"><code class="xref">PUT /vrfwpolicies/{uuid}/</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="virtualrouters_firewall_policies.html#delete--vrfwpolicies-vrfwpolicy_uuid-"><code class="xref">DELETE /vrfwpolicies/{vrfwpolicy_uuid}/</code></a></td><td>
+       <em></em></td></tr>
+   </table>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CloudSigma.
+      <span class="lastupdated">Last updated on Sep 13, 2023.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

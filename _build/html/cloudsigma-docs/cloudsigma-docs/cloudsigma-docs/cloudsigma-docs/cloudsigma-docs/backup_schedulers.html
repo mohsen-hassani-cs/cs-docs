@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backup Schedulers &mdash; CloudSigma API v2 documentation</title>
+      <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../../" id="documentation_options" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: green" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            CloudSigma API
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../general.html">General Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../locations.html">Locations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../pagination.html">Pagination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../errors.html">Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../capabilities.html">Capabilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../clone_naming.html">Clone naming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../drives.html">Drives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../snapshots.html">Snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../remote_snapshots.html">Remote Snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../libdrives.html">Library Drives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../upload_download.html">Upload or Download Drive Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../servers_vmware.html">VMWare Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../servers.html">Servers / VMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../servers_kvm.html">KVM Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../servers_solariskz.html">Solaris Kernel Zone Servers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../keypairs.html">Keypairs (SSH keys)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../server_context.html">Server Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../network_interfaces.html">Server Network Interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../networking.html">Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../tags.html">Tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../acls.html">ACLs (Access Control Lists)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../jobs.html">Jobs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../meta.html">Objects’ metadata field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../availability_groups.html">Availability Grouping and Avoid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../subscriptions.html">Subscriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../accounts.html">Accounts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../audit_logs.html">Audit logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../profile.html">Profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notification_preferences.html">Notification contacts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../notification_preferences.html#notification-preferences">Notification preferences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../billing.html">Billing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../burst_usage.html">Burst Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../burst_usage.html#daily-burst-usage">Daily Burst Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../current_usage.html">Current Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../async.html">Asynchronous server</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: green" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">CloudSigma API</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Backup Schedulers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../../_sources/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/cloudsigma-docs/backup_schedulers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="backup-schedulers">
+<h1>Backup Schedulers<a class="headerlink" href="#backup-schedulers" title="Permalink to this heading"></a></h1>
+<p>Backup schedulers are a set of rules to automate the creation and
+deletion of remote snapshots. It is possible to configure a backup scheduler
+to periodically create remote snapshots , e.g. daily, weekly or monthly. Also,
+it is possible to configure the retention policy to automate the deletion of
+the remote snapshots created by the scheduler.</p>
+<p>There are three different types of schedulers:</p>
+<ul class="simple">
+<li><p>dr</p></li>
+<li><p>migration</p></li>
+<li><p>backup</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This document is related to backup schedulers only.</p>
+</div>
+<section id="allowed-http-methods">
+<h2>Allowed HTTP methods<a class="headerlink" href="#allowed-http-methods" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GET</p></td>
+<td><p>get / list object/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>POST</p></td>
+<td><p>create new object/s</p></td>
+</tr>
+<tr class="row-even"><td><p>PUT</p></td>
+<td><p>update / modify object/s</p></td>
+</tr>
+<tr class="row-odd"><td><p>DELETE</p></td>
+<td><p>delete object/s</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See <span class="target" id="index-0"></span><a class="rfc reference external" href="https://datatracker.ietf.org/doc/html/rfc2616.html#section-9"><strong>RFC 2616#section-9</strong></a> for more details on HTTP methods semantics.</p>
+</div>
+</section>
+<section id="listing">
+<h2>Listing<a class="headerlink" href="#listing" title="Permalink to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--backupschedulers-">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/backupschedulers/</span></span><a class="headerlink" href="#get--backupschedulers-" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the list of backup schedulers to which the authenticated user has
+access.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fields</strong> – A set of field names specifying the returned fields.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Status Codes<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><span><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – no error</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request - default list</strong>:</p>
+<p><strong>Example response</strong>:</p>
+</dd></dl>
+
+</section>
+<section id="listing-schedulers-by-type">
+<h2>Listing schedulers by type<a class="headerlink" href="#listing-schedulers-by-type" title="Permalink to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--backupschedulers-?type=scheduler_type">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/backupschedulers/?type=scheduler_type</span></span><a class="headerlink" href="#get--backupschedulers-?type=scheduler_type" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the list of backups schedulers to which the authenticated user has
+access and are from type specified in the filters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – no error</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong>:</p>
+<p><strong>Example response</strong>:</p>
+</dd></dl>
+
+</section>
+<section id="detailed-listing">
+<h2>Detailed listing<a class="headerlink" href="#detailed-listing" title="Permalink to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--backupschedulers-detail-">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/backupschedulers/detail/</span></span><a class="headerlink" href="#get--backupschedulers-detail-" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the detailed list of backup schedulers with additional information to
+which the authenticated user has access.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – no error</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong>:</p>
+<p><strong>Example response</strong>:</p>
+</dd></dl>
+
+</section>
+<section id="detailed-listing-schedulers-by-type">
+<h2>Detailed listing schedulers by type<a class="headerlink" href="#detailed-listing-schedulers-by-type" title="Permalink to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--backupschedulers-detail-?type=scheduler_type">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/backupschedulers/detail/?type=scheduler_type</span></span><a class="headerlink" href="#get--backupschedulers-detail-?type=scheduler_type" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the detailed list of backup schedulers to which the authenticated user
+has access and are from type specified in the filters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – no error</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong>:</p>
+<p><strong>Example response</strong>:</p>
+</dd></dl>
+
+</section>
+<section id="list-single-backup-scheduler">
+<h2>List single backup scheduler<a class="headerlink" href="#list-single-backup-scheduler" title="Permalink to this heading"></a></h2>
+<dl class="http get">
+<dt class="sig sig-object http" id="get--backupschedulers-backupscheduler_uuid-">
+<span class="sig-name descname"><span class="pre">GET</span> </span><span class="sig-name descname"><span class="pre">/backupschedulers/{backupscheduler_uuid}/</span></span><a class="headerlink" href="#get--backupschedulers-backupscheduler_uuid-" title="Permalink to this definition"></a></dt>
+<dd><p>Gets detailed information on a backup scheduler identified by
+<cite>backupscheduler_uuid</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – no error</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong>:</p>
+<p><strong>Example response</strong>:</p>
+</dd></dl>
+
+</section>
+<section id="creating">
+<h2>Creating<a class="headerlink" href="#creating" title="Permalink to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--backupschedulers-">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/backupschedulers/</span></span><a class="headerlink" href="#post--backupschedulers-" title="Permalink to this definition"></a></dt>
+<dd><blockquote>
+<div><p>Creates a new backup scheduler.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.2">201 Created</a></span> – object created</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong>:</p>
+<p><strong>Example response</strong></p>
+</dd></dl>
+
+</section>
+<section id="editing">
+<h2>Editing<a class="headerlink" href="#editing" title="Permalink to this heading"></a></h2>
+<dl class="http put">
+<dt class="sig sig-object http" id="put--backupschedulers-backupscheduler_uuid-">
+<span class="sig-name descname"><span class="pre">PUT</span> </span><span class="sig-name descname"><span class="pre">/backupschedulers/{backupscheduler_uuid}/</span></span><a class="headerlink" href="#put--backupschedulers-backupscheduler_uuid-" title="Permalink to this definition"></a></dt>
+<dd><p>Edits a backup scheduler identified by <cite>backupscheduler_uuid</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a></span> – no errors</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong>:</p>
+<p><strong>Example response</strong>:</p>
+</dd></dl>
+
+</section>
+<section id="deleting">
+<h2>Deleting<a class="headerlink" href="#deleting" title="Permalink to this heading"></a></h2>
+<section id="single-backup-scheduler">
+<h3>Single backup scheduler<a class="headerlink" href="#single-backup-scheduler" title="Permalink to this heading"></a></h3>
+<dl class="http delete">
+<dt class="sig sig-object http" id="delete--backupschedulers-uuid-">
+<span class="sig-name descname"><span class="pre">DELETE</span> </span><span class="sig-name descname"><span class="pre">/backupschedulers/{uuid}/</span></span><a class="headerlink" href="#delete--backupschedulers-uuid-" title="Permalink to this definition"></a></dt>
+<dd><p>Deletes a single backup scheduler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.5">204 No Content</a></span> – No content, object deletion started.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong>:</p>
+<p><strong>Example response</strong>:</p>
+</dd></dl>
+
+</section>
+<section id="deletes-multiple-backup-schedulers">
+<h3>Deletes multiple backup schedulers<a class="headerlink" href="#deletes-multiple-backup-schedulers" title="Permalink to this heading"></a></h3>
+<dl class="http delete">
+<dt class="sig sig-object http" id="delete--backupschedulers-">
+<span class="sig-name descname"><span class="pre">DELETE</span> </span><span class="sig-name descname"><span class="pre">/backupschedulers/</span></span><a class="headerlink" href="#delete--backupschedulers-" title="Permalink to this definition"></a></dt>
+<dd><p>Deletes multiple backup schedulers specified by their UUIDs.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">statuscode 204<span class="colon">:</span></dt>
+<dd class="field-odd"><p>No content, object deletion started.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Example request</strong>:</p>
+<p>Request body</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;objects&quot;</span><span class="p">:</span>
+  <span class="p">[</span>
+    <span class="p">{</span>
+     <span class="s2">&quot;uuid&quot;</span><span class="p">:</span><span class="s2">&quot;b137e217-42b6-4ecf-8575-d72efc2d3dbd&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+     <span class="s2">&quot;uuid&quot;</span><span class="p">:</span><span class="s2">&quot;e035a488-8587-4a15-ab25-9b7343236bc9&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+     <span class="s2">&quot;uuid&quot;</span><span class="p">:</span><span class="s2">&quot;feded33c-106f-49fa-a1c4-be5c718ad1b5&quot;</span><span class="p">,</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.0</span> <span class="m">204</span> <span class="ne">NO CONTENT</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+<section id="set-scheduler-to-a-drive">
+<h2>Set scheduler to a drive<a class="headerlink" href="#set-scheduler-to-a-drive" title="Permalink to this heading"></a></h2>
+<dl class="http post">
+<dt class="sig sig-object http" id="post--drives-drive_uuid-action-?do=set_scheduler">
+<span class="sig-name descname"><span class="pre">POST</span> </span><span class="sig-name descname"><span class="pre">/drives/{drive_uuid}/action/?do=set_scheduler</span></span><a class="headerlink" href="#post--drives-drive_uuid-action-?do=set_scheduler" title="Permalink to this definition"></a></dt>
+<dd><p>Link a scheduler to a drive identified by <cite>drive_uuid</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Status Codes<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><span><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3">202 Accepted</a></span> – Action accepted, execution is proceeding</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example request</strong>:</p>
+<p><strong>Example response</strong></p>
+</dd></dl>
+
+</section>
+<section id="allowed-timezones">
+<h2>Allowed timezones<a class="headerlink" href="#allowed-timezones" title="Permalink to this heading"></a></h2>
+<p>The following list are the allowed timezone values for the fields
+orchestrator_timezone and user_timezone.</p>
+<blockquote>
+<div></div></blockquote>
+</section>
+<section id="examples-of-backup-schedulers-and-retention-policies">
+<h2>Examples of backup schedulers and retention policies<a class="headerlink" href="#examples-of-backup-schedulers-and-retention-policies" title="Permalink to this heading"></a></h2>
+<p>Configure a backup scheduler to create a remote snapshot every 45 minutes and
+only keep those remote snapshots that were taken in the past 2 days.</p>
+<blockquote>
+<div></div></blockquote>
+<p>Configure a backup scheduler to create a remote snapshot every hour between
+20:00 hours to 23:00 hours and only keeps those that were taken in the past 7
+days.</p>
+<blockquote>
+<div></div></blockquote>
+<p>Configure a weekly backup scheduler to create a remote snapshot every sunday
+at 23:00 hours and only keeps those that were taken in the past 4 weeks.</p>
+<blockquote>
+<div></div></blockquote>
+<p>Configure a monthly backup scheduler to create a remote snapshot every first
+of month at 23:59 hours and only keeps those that were taken in the past 6
+months.</p>
+<blockquote>
+<div></div></blockquote>
+</section>
+<section id="schema">
+<h2>Schema<a class="headerlink" href="#schema" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div></div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CloudSigma.
+      <span class="lastupdated">Last updated on Sep 13, 2023.
+      </span></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

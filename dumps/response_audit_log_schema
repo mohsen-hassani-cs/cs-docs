@@ -1,0 +1,89 @@
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+
+{
+    "allowed_detail_http_methods": [],
+    "allowed_list_http_methods": [
+        "get"
+    ],
+    "default_format": "application/json",
+    "default_limit": 20,
+    "fields": {
+        "action": {
+            "default": null,
+            "help_text": "Name of the executed action",
+            "readonly": false,
+            "required": true,
+            "type": "string"
+        },
+        "actor": {
+            "default": null,
+            "help_text": "User who executed action.",
+            "readonly": false,
+            "required": false,
+            "type": "related"
+        },
+        "category": {
+            "default": null,
+            "help_text": "Category the action belongs to.",
+            "readonly": false,
+            "required": true,
+            "type": "string"
+        },
+        "details": {
+            "default": null,
+            "help_text": "Details about the executed action.",
+            "readonly": false,
+            "required": false,
+            "type": "string"
+        },
+        "error_message": {
+            "default": null,
+            "help_text": "Error message, if applicable.",
+            "readonly": false,
+            "required": false,
+            "type": "string"
+        },
+        "error_point": {
+            "default": null,
+            "help_text": "The field that caused the error, if applicable.",
+            "readonly": false,
+            "required": false,
+            "type": "string"
+        },
+        "error_type": {
+            "default": null,
+            "help_text": "Type of error, if applicable.",
+            "readonly": false,
+            "required": false,
+            "type": "string"
+        },
+        "success": {
+            "default": true,
+            "help_text": "Whether the action was successful.",
+            "readonly": false,
+            "required": true,
+            "type": "boolean"
+        },
+        "timestamp": {
+            "default": null,
+            "help_text": "Time when entry was added.",
+            "readonly": false,
+            "required": true,
+            "type": "string"
+        },
+        "uuid": {
+            "default": null,
+            "help_text": "The uuid of resource the action is executed on. Can be empty, meaning no resource is referenced.",
+            "readonly": false,
+            "required": false,
+            "type": "string"
+        }
+    },
+    "filtering": {
+        "name": "exact",
+        "name__contains": "exact",
+        "tag": "exact",
+        "uuid": "exact"
+    }
+}

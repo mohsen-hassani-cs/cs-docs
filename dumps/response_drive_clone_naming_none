@@ -1,0 +1,40 @@
+HTTP/1.1 202 ACCEPTED
+Content-Type: application/json; charset=utf-8
+
+{
+    "objects": [
+        {
+            "affinities": [],
+            "allow_multimount": false,
+            "grantees": [],
+            "jobs": [
+                {
+                    "resource_uri": "/api/2.0/jobs/a34a8179-f6c1-4a0c-8d96-f0d727017807/",
+                    "uuid": "a34a8179-f6c1-4a0c-8d96-f0d727017807"
+                }
+            ],
+            "licenses": [],
+            "media": "cdrom",
+            "meta": {},
+            "mounted_on": [],
+            "name": "test_drive_x",
+            "owner": {
+                "resource_uri": "/api/2.0/user/5b4a69a3-8e78-4c45-a8ba-8b13f0895e23/",
+                "uuid": "5b4a69a3-8e78-4c45-a8ba-8b13f0895e23"
+            },
+            "permissions": [],
+            "resource_uri": "/api/2.0/drives/a2bb845d-149f-4750-8ef2-021d2c98e247/",
+            "runtime": {
+                "is_snapshotable": null,
+                "snapshots_allocated_size": 0,
+                "storage_type": "dssd"
+            },
+            "size": 1073741824,
+            "snapshots": [],
+            "status": "cloning_dst",
+            "storage_type": "dssd",
+            "tags": [],
+            "uuid": "a2bb845d-149f-4750-8ef2-021d2c98e247"
+        }
+    ]
+}

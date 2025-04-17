@@ -1,0 +1,18 @@
+POST /api/2.0/tags/ HTTP/1.1
+Content-Type: application/json
+Authorization: Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop
+
+{
+    "objects": [
+        {
+            "name": "TagCreatedWithResource",
+            "resources": [
+                "401d5ba4-6544-47ef-bf61-54bafe59d871",
+                "3576136a-0a7e-4ece-8050-f2e408fbca96",
+                "9214aa22-10db-4aff-92f2-779a043b13c7",
+                "94.26.101.182",
+                "10619300-edda-42ba-91e0-7e3df0689d00"
+            ]
+        }
+    ]
+}

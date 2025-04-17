@@ -1,0 +1,5 @@
+DELETE /api/2.0/servers/efc6cc26-3706-4638-910e-e8b9ef45173f/?recurse=disks HTTP/1.1
+Content-Type: application/json
+Authorization: Basic SWYgeW91IGZvdW5kIHRoaXMsIGhhdmUgYSBjb29raWUsIHlvdSBkZXNlcnZlIGl0IDop
+
+
