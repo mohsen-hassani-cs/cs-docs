@@ -1,0 +1,3 @@
+[submodule "omnifabric"]
+	path = omnifabric
+	url = https://github.com/cloudsigma/omnifabric-docs
