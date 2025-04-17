@@ -9,6 +9,7 @@ Welcome to CloudSigma API documentation!
 .. toctree::
     :maxdepth: 2
 
+    omni2
     release_notes
     general
     locations
